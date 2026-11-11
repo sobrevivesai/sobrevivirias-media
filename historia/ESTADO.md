@@ -3,7 +3,7 @@
 ## Datos fijos
 - Cuenta: Instagram @sobrevivirias.z (Metricool blogId 8008179, zona horaria America/Argentina/Buenos_Aires).
 - Serie actual: **PISO 33**. Última parte publicada o programada: **Parte 4**.
-- Publicación: 2 Reels por día, a las **12:00** y a las **16:00** (hora de Argentina).
+- Publicación: **1 parte por día a las 16:00** (hora de Argentina), en Instagram (Reel) y YouTube (Short).
 
 ## Personajes (no cambiar su aspecto)
 - **Tú (protagonista):** figura de palitos, cabeza blanca, ojos de punto, **bandana roja** con nudo, campera verde oliva, mochila verde. La narración siempre le habla a él en segunda persona ("tú").
@@ -45,5 +45,7 @@ Reglas para cada serie nueva:
 | --- | --- | --- |
 | 1 | 10/11 12:37 | 64% abrir |
 | 2 | 10/11 16:00 | 58% revisar el brazo |
-| 3 | 11/11 12:00 | 61% ir juntos |
-| 4 | 11/11 16:00 | (pendiente) |
+| 3 | 11/11 12:00 (IG + YouTube) | 61% ir juntos |
+| 4 | 11/11 16:00 (IG + YouTube) | (pendiente) |
+
+Nota: las Partes 1 y 2 se subieron a YouTube el 11/11 por la mañana.

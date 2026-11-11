@@ -1,6 +1,6 @@
 # Procedimiento diario (lo ejecuta la tarea programada)
 
-Objetivo: cada día crear las 2 partes siguientes de la serie, renderizarlas, subirlas a GitHub Pages y programarlas en Instagram vía Metricool a las 12:00 y 16:00 (hora de Argentina). Sin intervención humana.
+Objetivo: cada día crear **1 parte nueva** de la serie, renderizarla, subirla a GitHub Pages y programarla en Instagram (Reel) y YouTube (Short) vía Metricool a las **16:00** (hora de Argentina). Sin intervención humana.
 
 ## 1. Preparar
 - `git pull` del repo. Ejecutar `bash engine/setup.sh` (instala la voz Kokoro desde npm/PyPI en /home/claude/tts).
@@ -11,9 +11,8 @@ Predecí qué opción elegiría la mayoría de la gente pensando en cuál es la 
 - Si una opción es claramente la más lógica: gana con un porcentaje alto (65–82%).
 - Si las dos son razonables o es un dilema moral: resultado peleado (51–58%).
 - Nunca 50/50 ni porcentajes redondos (usar, por ejemplo, 63, 57, 71).
-La parte de las 16:00 también arranca con el resultado de la elección de la parte de las 12:00 (predicho con la misma regla).
 
-## 3. Escribir las 2 partes nuevas (parteN+1.json y parteN+2.json)
+## 3. Escribir la parte nueva (parteN+1.json)
 Reglas de guion (pedidas por el dueño de la cuenta):
 - Narración en segunda persona con "tú", español neutro. Voz em_alex.
 - 50–65 s por parte, 10–12 escenas de 3–6 s. Gancho fuerte en el primer segundo.
@@ -34,8 +33,8 @@ Reglas de guion (pedidas por el dueño de la cuenta):
 ## 6. Subir y programar
 - Copiar a `videos/<serie>-parteN.mp4`, commit y push a `main`. Esperar unos 2 minutos para que GitHub Pages lo publique.
 - URL pública: `https://sobrevivesai.github.io/sobrevivirias-media/videos/<serie>-parteN.mp4`
-- Metricool `createScheduledPost`, blogId `8008179`, una por parte:
-  - Parte N+1 hoy 12:00 y Parte N+2 hoy 16:00, timezone America/Argentina/Buenos_Aires. Si ya pasó la hora, programar 10 minutos después de ahora.
+- Metricool `createScheduledPost`, blogId `8008179`:
+  - Parte N+1 hoy a las 16:00, timezone America/Argentina/Buenos_Aires. Si ya pasó la hora, programar 10 minutos después de ahora.
   - `providers: [{"network":"instagram"}]`, `instagramData: {"type":"REEL","showReelOnFeed":true,"isAiGenerated":true}`, `videoCoverMilliseconds: 300`, `autoPublish: true`.
   - Texto: 1ª línea con PALABRAS CLAVE EN MAYÚSCULA + ` | PISO 33 · Parte N`; una línea de contexto; `👇 Comenta A o B: ... La mayoría decide la Parte N+1.`; máximo 5 hashtags.
 - **YouTube Shorts:** antes de programar, llamar a `getBrandSettings`. Si `networksData` incluye YouTube, agregar `{"network":"youtube"}` a `providers` en la misma publicación, con `youtubeData`: `{"title": "<título de hasta 100 caracteres con PALABRAS CLAVE EN MAYÚSCULA> | <SERIE> Parte N #shorts", "type": "short", "privacy": "public", "madeForKids": false, "isAiGeneratedContent": false, "category": "FILM_ANIMATION", "tags": ["zombies", "supervivencia", "historias interactivas", "tú decides", "<serie>"]}`. Si YouTube no está conectado, publicar solo en Instagram.
@@ -43,4 +42,4 @@ Reglas de guion (pedidas por el dueño de la cuenta):
 
 ## 7. Cerrar
 - Actualizar `historia/ESTADO.md`: última parte, resumen de lo que pasó, elección pendiente, hilos abiertos y registro de publicaciones. Commit y push.
-- Enviar un resumen corto al dueño: qué partes se programaron, a qué hora, quién ganó cada votación y cualquier problema.
+- Enviar un resumen corto al dueño: qué parte se programó, a qué hora, quién ganó cada votación y cualquier problema.
