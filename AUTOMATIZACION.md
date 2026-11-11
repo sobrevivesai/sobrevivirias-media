@@ -38,6 +38,7 @@ Reglas de guion (pedidas por el dueño de la cuenta):
   - Parte N+1 hoy 12:00 y Parte N+2 hoy 16:00, timezone America/Argentina/Buenos_Aires. Si ya pasó la hora, programar 10 minutos después de ahora.
   - `providers: [{"network":"instagram"}]`, `instagramData: {"type":"REEL","showReelOnFeed":true,"isAiGenerated":true}`, `videoCoverMilliseconds: 300`, `autoPublish: true`.
   - Texto: 1ª línea con PALABRAS CLAVE EN MAYÚSCULA + ` | PISO 33 · Parte N`; una línea de contexto; `👇 Comenta A o B: ... La mayoría decide la Parte N+1.`; máximo 5 hashtags.
+- **YouTube Shorts:** antes de programar, llamar a `getBrandSettings`. Si `networksData` incluye YouTube, agregar `{"network":"youtube"}` a `providers` en la misma publicación, con `youtubeData`: `{"title": "<título de hasta 100 caracteres con PALABRAS CLAVE EN MAYÚSCULA> | <SERIE> Parte N #shorts", "type": "short", "privacy": "public", "madeForKids": false, "isAiGeneratedContent": false, "category": "FILM_ANIMATION", "tags": ["zombies", "supervivencia", "historias interactivas", "tú decides", "<serie>"]}`. Si YouTube no está conectado, publicar solo en Instagram.
 - Si Metricool devuelve error (por ejemplo, el límite de 20 publicaciones por mes del plan gratis), no reintentar en bucle: dejarlo anotado y avisar.
 
 ## 7. Cerrar

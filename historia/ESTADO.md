@@ -24,7 +24,21 @@
 - Recursos: dejaron 50 L de agua en el departamento; ya no tienen comida.
 
 ## Cuando la historia termine
-Cerrar PISO 33 con un final fuerte (unas 12 a 16 partes en total) y arrancar otra serie de supervivencia con nombre propio (la cuenta es genérica). Actualizar este archivo con la nueva serie.
+Cuando PISO 33 se acerque a su fin (unas 12 a 16 partes en total), prepará un cierre fuerte en 1 o 2 partes y arrancá una serie nueva al día siguiente. La cuenta es genérica: cada serie tiene su propio nombre, portada y carpeta `historia/<serie>/`.
+
+Ideas para próximas series (elegí la más atrapante y variá el tipo de escenario):
+- **EL BÚNKER:** encerrado bajo tierra con aire, comida y energía contados; alguien golpea la escotilla.
+- **ISLA:** naufragio en una isla sin agua dulce; señales de otros sobrevivientes.
+- **APAGÓN:** la ciudad sin electricidad hace semanas; invierno, saqueos, el edificio se organiza.
+- **ESTACIÓN POLAR:** -40°C, la radio se corta, algo afuera no es humano.
+- **TÚNEL DEL SUBTE:** atrapado bajo la ciudad tras un derrumbe.
+
+Reglas para cada serie nueva:
+- Protagonista propio y reconocible (nada copiado de otros creadores), con los mismos personajes de palitos y el mismo estilo de dibujo.
+- Mismo formato: segunda persona, 50–65 s, ficha con un dato real de supervivencia, contadores, elección A/B al final, portada "<SERIE> · PARTE N".
+- La primera parte presenta el escenario con un gancho fuerte; los recursos y las reglas del lugar se explican con datos reales.
+- Coherencia total entre narración, escenarios y contadores. Escenarios nuevos se agregan en engine/beanie.py con el mismo estilo.
+- Actualizar este archivo: serie actual, personajes, estado e hilos abiertos.
 
 ## Registro de publicaciones
 | Parte | Fecha (ART) | Resultado anunciado en la parte siguiente |
