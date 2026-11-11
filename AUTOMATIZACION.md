@@ -31,7 +31,7 @@ Reglas de guion (pedidas por el dueño de la cuenta):
 - Verificar duración (50–65 s) y revisar 6 cuadros del video final.
 
 ## 6. Subir y programar
-- Copiar a `videos/<serie>-parteN.mp4`, commit y push a `main`. Esperar unos 2 minutos para que GitHub Pages lo publique.
+- Copiar a `videos/<serie>-parteN.mp4`, commit y push a `main`. Esperar al menos 3 minutos para que GitHub Pages lo publique. Si Metricool responde que la URL "is not publicly accessible", esperar 2 minutos más y reintentar (hasta 3 veces).
 - URL pública: `https://sobrevivesai.github.io/sobrevivirias-media/videos/<serie>-parteN.mp4`
 - Metricool `createScheduledPost`, blogId `8008179`:
   - Parte N+1 hoy a las 16:00, timezone America/Argentina/Buenos_Aires. Si ya pasó la hora, programar 10 minutos después de ahora.
