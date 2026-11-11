@@ -1,0 +1,439 @@
+{
+ "parte": 4,
+ "voz": "em_alex",
+ "velocidad": 1.0,
+ "beats": [
+  {
+   "scene": "results",
+   "say": "El sesenta y uno por ciento eligió ir juntos.",
+   "no_caps": true,
+   "A": [
+    "Ir juntos",
+    61
+   ],
+   "B": [
+    "Ir solo",
+    39
+   ],
+   "A_beat": {
+    "scene": "map"
+   },
+   "A_view": [
+    0.5,
+    0.5,
+    1.15
+   ],
+   "B_beat": {
+    "scene": "lucia",
+    "cast": [
+     {
+      "who": "lucia",
+      "x": 760,
+      "y": 1680,
+      "s": 1.8,
+      "pose": "hold",
+      "look": -1
+     }
+    ],
+    "candle": [
+     420,
+     1680
+    ]
+   },
+   "B_view": [
+    0.58,
+    0.62,
+    1.4
+   ],
+   "min": 3.8
+  },
+  {
+   "scene": "stairs",
+   "say": "Día siete. Cinco y media de la mañana. Bajan por la escalera, a oscuras.",
+   "cap": "Día 7. 5:30 de la mañana. Bajan por la escalera, a oscuras.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 430,
+     "y": 1180,
+     "s": 0.9,
+     "pose": "walk",
+     "dx": 180
+    },
+    {
+     "who": "lucia",
+     "x": 300,
+     "y": 1110,
+     "s": 0.9,
+     "pose": "walk",
+     "dx": 180
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "zoom": [
+    1.0,
+    1.08
+   ]
+  },
+  {
+   "scene": "card",
+   "say": "Treinta y tres pisos son más de seiscientos escalones. Y en una escalera vacía, cada paso hace eco.",
+   "cap": "33 pisos son más de 600 escalones. Y en una escalera vacía, cada paso hace eco.",
+   "card": {
+    "icon": "stairs",
+    "kicker": "LA ESCALERA",
+    "title": "33 PISOS",
+    "rows": [
+     [
+      "Escalones",
+      "unos 660"
+     ],
+     [
+      "Bajando lento",
+      "15 min"
+     ]
+    ],
+    "big": "Cada paso hace eco",
+    "big_t": 3.2
+   },
+   "y": 1640
+  },
+  {
+   "scene": "stairs",
+   "say": "En el piso doce... algo sube.",
+   "cap": "En el piso 12... algo sube.",
+   "zombie_up": true,
+   "cast": [
+    {
+     "who": "you",
+     "x": 620,
+     "y": 1180,
+     "s": 0.9,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 480,
+     "y": 1120,
+     "s": 0.9,
+     "look": 1
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "sfx": "heart,groan",
+   "red": true,
+   "zoom": [
+    1.0,
+    1.15
+   ],
+   "center": [
+    0.55,
+    0.62
+   ],
+   "pausa": 0.5
+  },
+  {
+   "scene": "stairs",
+   "say": "Se pegan a la pared. Pasa a centímetros. No los ve.",
+   "cap": "Se pegan a la pared. Pasa a centímetros. No los ve.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 620,
+     "y": 1180,
+     "s": 0.9,
+     "pose": "wall"
+    },
+    {
+     "who": "lucia",
+     "x": 500,
+     "y": 1150,
+     "s": 0.9,
+     "pose": "wall"
+    }
+   ],
+   "zombie_up": true,
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "sfx": "heart",
+   "zoom": [
+    1.15,
+    1.3
+   ],
+   "center": [
+    0.55,
+    0.6
+   ]
+  },
+  {
+   "scene": "street_side",
+   "say": "Salen por el garaje. La calle está quieta. Demasiado quieta.",
+   "cap": "Salen por el garaje. La calle está quieta. Demasiado quieta.",
+   "zombies": 5,
+   "cast": [
+    {
+     "who": "you",
+     "x": 560,
+     "y": 1720,
+     "s": 1.0,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 420,
+     "y": 1720,
+     "s": 0.95,
+     "look": 1
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   }
+  },
+  {
+   "scene": "street_side",
+   "say": "Caminan entre autos abandonados. No corren: correr hace ruido.",
+   "cap": "Caminan entre autos abandonados. No corren: correr hace ruido.",
+   "zombies": 7,
+   "cast": [
+    {
+     "who": "you",
+     "x": 300,
+     "y": 1720,
+     "s": 1.0,
+     "pose": "walk",
+     "dx": 420
+    },
+    {
+     "who": "lucia",
+     "x": 160,
+     "y": 1720,
+     "s": 0.95,
+     "pose": "walk",
+     "dx": 420
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "sfx": "groan"
+  },
+  {
+   "scene": "street_side",
+   "say": "Uno de ellos gira la cabeza hacia ustedes. Se quedan inmóviles. Diez segundos eternos... y sigue de largo.",
+   "cap": "Uno de ellos gira la cabeza hacia ustedes. Se quedan inmóviles. Diez segundos eternos... y sigue de largo.",
+   "zombies": 7,
+   "cast": [
+    {
+     "who": "you",
+     "x": 720,
+     "y": 1720,
+     "s": 1.0,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 580,
+     "y": 1720,
+     "s": 0.95,
+     "look": 1
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "sfx": "heart",
+   "zoom": [
+    1.1,
+    1.3
+   ],
+   "center": [
+    0.55,
+    0.66
+   ],
+   "red": true
+  },
+  {
+   "scene": "hospital",
+   "say": "Seis y cincuenta. El portón del hospital. Hay soldados.",
+   "cap": "6:50. El portón del hospital. Hay soldados.",
+   "searchlight": true,
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "sfx": "rotor",
+   "zoom": [
+    1.2,
+    1.0
+   ]
+  },
+  {
+   "scene": "hospital",
+   "say": "Arriba, en la terraza, el helicóptero ya tiene las aspas girando. Quedan diez minutos.",
+   "cap": "Arriba, en la terraza, el helicóptero ya tiene las aspas girando. Quedan 10 minutos.",
+   "searchlight": true,
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "sfx": "rotor",
+   "zoom": [
+    1.1,
+    1.3
+   ],
+   "center": [
+    0.5,
+    0.3
+   ]
+  },
+  {
+   "scene": "hospital",
+   "say": "Revisan a cada persona. Brazos. Cuello. Piernas.",
+   "cap": "Revisan a cada persona. Brazos. Cuello. Piernas.",
+   "searchlight": true,
+   "cast": [
+    {
+     "who": "you",
+     "x": 160,
+     "y": 1900,
+     "s": 1.1,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 320,
+     "y": 1900,
+     "s": 1.05,
+     "look": 1,
+     "pose": "hold"
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "sfx": "heart",
+   "zoom": [
+    1.0,
+    1.12
+   ],
+   "center": [
+    0.45,
+    0.62
+   ]
+  },
+  {
+   "scene": "hospital",
+   "say": "Lucía te aprieta la mano. Está temblando.",
+   "cap": "Lucía te aprieta la mano. Está temblando.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 470,
+     "y": 1940,
+     "s": 1.6,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 730,
+     "y": 1940,
+     "s": 1.55,
+     "look": -1,
+     "pose": "hold"
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "sfx": "heart",
+   "zoom": [
+    1.2,
+    1.4
+   ],
+   "center": [
+    0.5,
+    0.7
+   ],
+   "pausa": 0.6
+  },
+  {
+   "scene": "choice",
+   "say": "¿Dices la verdad sobre la mordida... o la escondes?",
+   "no_caps": true,
+   "sfx": "hit",
+   "A": "Decir la verdad sobre la mordida",
+   "B": "Esconder la mordida bajo la campera",
+   "A_beat": {
+    "scene": "hospital",
+    "searchlight": true
+   },
+   "A_view": [
+    0.5,
+    0.55,
+    1.2
+   ],
+   "B_beat": {
+    "scene": "bite",
+    "bitten": true
+   },
+   "B_view": [
+    0.5,
+    0.5,
+    1.15
+   ]
+  }
+ ],
+ "serie": "PISO 33",
+ "titulo": "LA ESCALERA",
+ "cover": {
+  "bg_beat": {
+   "scene": "stairs",
+   "zombie_up": true,
+   "cast": [
+    {
+     "who": "you",
+     "x": 620,
+     "y": 1180,
+     "s": 0.9,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 480,
+     "y": 1120,
+     "s": 0.9,
+     "look": 1
+    }
+   ]
+  },
+  "center": [
+   0.55,
+   0.55
+  ],
+  "zoom": 1.12
+ }
+}

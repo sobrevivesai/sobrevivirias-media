@@ -1,0 +1,326 @@
+{
+ "parte": 1,
+ "voz": "em_alex",
+ "velocidad": 1.0,
+ "beats": [
+  {
+   "scene": "hook",
+   "say": "Te despiertas en el piso treinta y tres... y la ciudad está muerta.",
+   "cap": "Te despiertas en el piso 33... y la ciudad está muerta.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 621,
+     "y": 1690,
+     "s": 1.7,
+     "face": false
+    }
+   ],
+   "flashw": 1,
+   "shake": 40,
+   "sfx": "boom,siren",
+   "zoom": [
+    1.22,
+    1.05
+   ]
+  },
+  {
+   "scene": "window_night",
+   "say": "Son las tres y cuatro de la madrugada. Afuera, las sirenas no paran.",
+   "cap": "Son las 3:04 de la madrugada. Afuera, las sirenas no paran.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 380,
+     "y": 1690,
+     "s": 1.5,
+     "face": false
+    }
+   ],
+   "hud": {
+    "dia": 1
+   },
+   "sfx": "siren"
+  },
+  {
+   "scene": "tv",
+   "say": "En la tele, un solo mensaje se repite. No salga de su casa. No abra la puerta. A nadie.",
+   "cap": "En la tele, un solo mensaje se repite. No salga de su casa. No abra la puerta. A nadie.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 160,
+     "y": 1640,
+     "s": 1.25,
+     "look": 1
+    }
+   ],
+   "hud": {
+    "dia": 1
+   },
+   "sfx": "static",
+   "y": 1500
+  },
+  {
+   "scene": "street",
+   "say": "Te asomas al balcón. Abajo hay cientos. Y siguen llegando.",
+   "cap": "Te asomas al balcón. Abajo hay cientos. Y siguen llegando.",
+   "hud": {
+    "dia": 1
+   },
+   "sfx": "hit,groan",
+   "zoom": [
+    1.0,
+    1.25
+   ],
+   "center": [
+    0.5,
+    0.55
+   ]
+  },
+  {
+   "scene": "street",
+   "say": "Primera regla: cualquier ruido los atrae.",
+   "cap": "Primera regla: cualquier ruido los atrae.",
+   "hud": {
+    "dia": 1
+   },
+   "sfx": "groan",
+   "zoom": [
+    1.3,
+    1.7
+   ],
+   "center": [
+    0.5,
+    0.45
+   ],
+   "crowd": 120
+  },
+  {
+   "scene": "card",
+   "say": "Segunda regla: el agua. Cuando se corta la luz, las bombas se apagan. Y los pisos de arriba se quedan secos primero.",
+   "cap": "Segunda regla: el agua. Cuando se corta la luz, las bombas se apagan. Y los pisos de arriba se quedan secos primero.",
+   "card": {
+    "icon": "drop",
+    "kicker": "REGLA 2",
+    "title": "EL AGUA",
+    "rows": [
+     [
+      "Sin luz",
+      "bombas apagadas"
+     ],
+     [
+      "Pisos altos",
+      "se secan primero"
+     ]
+    ],
+    "big": "4 L por persona/día",
+    "big_t": 3.5
+   },
+   "zoom": [
+    1.0,
+    1.03
+   ],
+   "y": 1640
+  },
+  {
+   "scene": "bath",
+   "say": "Así que llenas la bañera. Ciento cincuenta litros. Para ti solo, alcanza para más de un mes.",
+   "cap": "Así que llenas la bañera. 150 litros. Para ti solo, alcanza para más de un mes.",
+   "fill": [
+    0.05,
+    0.85
+   ],
+   "cast": [
+    {
+     "who": "you",
+     "x": 1110,
+     "y": 1700,
+     "s": 1.1,
+     "look": -1
+    }
+   ],
+   "hud": {
+    "dia": 1,
+    "agua": 0
+   },
+   "hud_anim": {
+    "agua": [
+     0,
+     150,
+     0.05,
+     0.85
+    ]
+   },
+   "sfx": "water",
+   "y": 560
+  },
+  {
+   "scene": "dark",
+   "say": "A las cuatro y diez... se corta la luz.",
+   "cap": "A las 4:10... se corta la luz.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 430,
+     "y": 1680,
+     "s": 1.6,
+     "pose": "flash"
+    }
+   ],
+   "flash_to": [
+    1150,
+    900
+   ],
+   "hud": {
+    "dia": 1,
+    "agua": 150
+   },
+   "flicker": true,
+   "sfx": "power"
+  },
+  {
+   "scene": "kitchen",
+   "say": "Revisas la cocina con la linterna. Tienes comida para seis días. Seis.",
+   "cap": "Revisas la cocina con la linterna. Tienes comida para 6 días. Seis.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 170,
+     "y": 1680,
+     "s": 1.4,
+     "pose": "flash"
+    }
+   ],
+   "flash_to": [
+    740,
+    800
+   ],
+   "hud": {
+    "dia": 1,
+    "agua": 150
+   },
+   "hud_anim": {
+    "comida": [
+     -1,
+     6,
+     0.55,
+     0.56
+    ]
+   }
+  },
+  {
+   "scene": "door",
+   "say": "Y entonces... alguien golpea tu puerta.",
+   "cap": "Y entonces... alguien golpea tu puerta.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 330,
+     "y": 1680,
+     "s": 1.5,
+     "look": 1
+    }
+   ],
+   "hud": {
+    "dia": 1,
+    "agua": 150,
+    "comida": 6
+   },
+   "knocks": [
+    1.25,
+    1.55,
+    1.85
+   ],
+   "sfx": "heart",
+   "zoom": [
+    1.0,
+    1.12
+   ],
+   "pausa": 0.8
+  },
+  {
+   "scene": "peephole",
+   "say": "Por la mirilla ves a tu vecina del treinta y tres cero dos. Está sola. Jura que no la mordieron.",
+   "cap": "Por la mirilla ves a tu vecina del 3302. Está sola. Jura que no la mordieron.",
+   "sfx": "heart",
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "y": 1560
+  },
+  {
+   "scene": "peephole",
+   "say": "Pero al fondo del pasillo... algo se está moviendo.",
+   "cap": "Pero al fondo del pasillo... algo se está moviendo.",
+   "far_zombie": true,
+   "sfx": "heart,groan",
+   "zoom": [
+    1.0,
+    1.35
+   ],
+   "center": [
+    0.5,
+    0.46
+   ],
+   "y": 1560,
+   "red": true,
+   "pausa": 0.6
+  },
+  {
+   "scene": "choice",
+   "say": "¿Le abres la puerta... o te quedas en silencio?",
+   "no_caps": true,
+   "sfx": "hit",
+   "A": "Abrirle la puerta y dejarla entrar",
+   "B": "Quedarte en silencio y no abrir",
+   "A_beat": {
+    "scene": "peephole"
+   },
+   "A_view": [
+    0.5,
+    0.45,
+    1.3
+   ],
+   "B_beat": {
+    "scene": "door",
+    "cast": [
+     {
+      "who": "you",
+      "x": 330,
+      "y": 1680,
+      "s": 1.5,
+      "look": 1
+     }
+    ]
+   },
+   "B_view": [
+    0.5,
+    0.55,
+    1.25
+   ]
+  }
+ ],
+ "serie": "PISO 33",
+ "titulo": "LA PUERTA",
+ "cover": {
+  "bg_beat": {
+   "scene": "hook",
+   "cast": [
+    {
+     "who": "you",
+     "x": 621,
+     "y": 1690,
+     "s": 1.7,
+     "face": false
+    }
+   ]
+  },
+  "center": [
+   0.5,
+   0.5
+  ],
+  "zoom": 1.12
+ }
+}

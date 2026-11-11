@@ -1,0 +1,331 @@
+{
+ "parte": 3,
+ "voz": "em_alex",
+ "velocidad": 1.0,
+ "beats": [
+  {
+   "scene": "results",
+   "say": "El cincuenta y ocho por ciento eligió revisar el brazo.",
+   "no_caps": true,
+   "A": [
+    "Revisar el brazo",
+    58
+   ],
+   "B": [
+    "Confiar en ella",
+    42
+   ],
+   "A_beat": {
+    "scene": "bite"
+   },
+   "A_view": [
+    0.5,
+    0.5,
+    1.15
+   ],
+   "B_beat": {
+    "scene": "lucia",
+    "cast": [
+     {
+      "who": "lucia",
+      "x": 760,
+      "y": 1680,
+      "s": 1.8,
+      "pose": "hold",
+      "look": -1
+     }
+    ],
+    "candle": [
+     420,
+     1680
+    ]
+   },
+   "B_view": [
+    0.58,
+    0.62,
+    1.4
+   ],
+   "min": 3.8
+  },
+  {
+   "scene": "bite",
+   "say": "Lucía se saca la venda despacio. Es una mordida.",
+   "cap": "Lucía se saca la venda despacio. Es una mordida.",
+   "bitten": true,
+   "hud": {
+    "dia": 4,
+    "agua": 110,
+    "comida": 2
+   },
+   "sfx": "boom",
+   "shake": 25,
+   "zoom": [
+    1.25,
+    1.05
+   ],
+   "red": true
+  },
+  {
+   "scene": "lucia",
+   "say": "Llora. Dice que fue hace tres días. Que no tiene fiebre. Que sigue siendo ella.",
+   "cap": "Llora. Dice que fue hace tres días. Que no tiene fiebre. Que sigue siendo ella.",
+   "cast": [
+    {
+     "who": "lucia",
+     "x": 760,
+     "y": 1680,
+     "s": 1.8,
+     "pose": "hold",
+     "look": -1,
+     "tears": true
+    }
+   ],
+   "candle": [
+    420,
+    1680
+   ],
+   "hud": {
+    "dia": 4,
+    "agua": 110,
+    "comida": 2
+   },
+   "zoom": [
+    1.0,
+    1.15
+   ],
+   "center": [
+    0.58,
+    0.6
+   ]
+  },
+  {
+   "scene": "dark",
+   "say": "Si es verdad... Lucía podría ser inmune. Y si no lo es... estás encerrado con ella.",
+   "cap": "Si es verdad... Lucía podría ser inmune. Y si no lo es... estás encerrado con ella.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 300,
+     "y": 1680,
+     "s": 1.3,
+     "pose": "sit",
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 700,
+     "y": 1680,
+     "s": 1.3,
+     "pose": "sit"
+    }
+   ],
+   "hud": {
+    "dia": 4,
+    "agua": 110,
+    "comida": 2
+   },
+   "sfx": "heart"
+  },
+  {
+   "scene": "window_day",
+   "say": "Día seis. Queda comida para un día. Y el agua baja más rápido de lo que pensabas.",
+   "cap": "Día 6. Queda comida para un día. Y el agua baja más rápido de lo que pensabas.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 420,
+     "y": 1690,
+     "s": 1.4,
+     "face": false
+    },
+    {
+     "who": "lucia",
+     "x": 800,
+     "y": 1690,
+     "s": 1.35,
+     "face": false
+    }
+   ],
+   "hud": {
+    "dia": 6,
+    "agua": 60,
+    "comida": 1
+   }
+  },
+  {
+   "scene": "heli",
+   "say": "Esa noche, un helicóptero cruza la ciudad... y se pierde hacia el norte.",
+   "cap": "Esa noche, un helicóptero cruza la ciudad... y se pierde hacia el norte.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 360,
+     "y": 1690,
+     "s": 1.5,
+     "face": false,
+     "pose": "point"
+    }
+   ],
+   "hud": {
+    "dia": 6,
+    "agua": 60,
+    "comida": 1
+   },
+   "sfx": "rotor"
+  },
+  {
+   "scene": "radio",
+   "say": "Y la radio, que estaba muda hace días, de repente habla. Último rescate. Terraza del Hospital Central. Mañana a las siete.",
+   "cap": "Y la radio, que estaba muda hace días, de repente habla. Último rescate. Terraza del Hospital Central. Mañana a las 7.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 150,
+     "y": 1680,
+     "s": 1.3,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 1090,
+     "y": 1680,
+     "s": 1.25,
+     "look": -1
+    }
+   ],
+   "hud": {
+    "dia": 6,
+    "agua": 60,
+    "comida": 1
+   },
+   "sfx": "static,hit",
+   "y": 520
+  },
+  {
+   "scene": "map",
+   "say": "El hospital está a doce cuadras. Doce cuadras de calles llenas.",
+   "cap": "El hospital está a 12 cuadras. Doce cuadras de calles llenas.",
+   "hud": {
+    "dia": 6,
+    "agua": 60,
+    "comida": 1
+   },
+   "sfx": "groan",
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "y": 1500
+  },
+  {
+   "scene": "card",
+   "say": "Doce cuadras son poco más de un kilómetro. Caminando en silencio, unos veinte minutos. Corriendo, menos... pero corriendo haces ruido.",
+   "cap": "Doce cuadras son poco más de un kilómetro. Caminando en silencio, unos 20 minutos. Corriendo, menos... pero corriendo haces ruido.",
+   "card": {
+    "icon": "walk",
+    "kicker": "LA RUTA",
+    "title": "12 CUADRAS",
+    "rows": [
+     [
+      "Distancia",
+      "1,2 km"
+     ],
+     [
+      "Caminando",
+      "20 min"
+     ],
+     [
+      "Corriendo",
+      "7 min + ruido"
+     ]
+    ]
+   },
+   "y": 1640
+  },
+  {
+   "scene": "lucia",
+   "say": "Lucía te mira. Los dos saben lo mismo: si ven esa mordida... no la van a dejar subir.",
+   "cap": "Lucía te mira. Los dos saben lo mismo: si ven esa mordida... no la van a dejar subir.",
+   "cast": [
+    {
+     "who": "lucia",
+     "x": 760,
+     "y": 1680,
+     "s": 1.8,
+     "pose": "hold",
+     "look": -1
+    }
+   ],
+   "candle": [
+    420,
+    1680
+   ],
+   "hud": {
+    "dia": 6,
+    "agua": 60,
+    "comida": 1
+   },
+   "sfx": "heart",
+   "zoom": [
+    1.1,
+    1.4
+   ],
+   "center": [
+    0.6,
+    0.58
+   ],
+   "pausa": 0.6
+  },
+  {
+   "scene": "choice",
+   "say": "¿Van juntos al hospital... o vas solo y la dejas encerrada?",
+   "no_caps": true,
+   "sfx": "hit",
+   "A": "Ir juntos al hospital",
+   "B": "Ir solo y dejarla encerrada",
+   "A_beat": {
+    "scene": "map"
+   },
+   "A_view": [
+    0.5,
+    0.5,
+    1.15
+   ],
+   "B_beat": {
+    "scene": "lucia",
+    "cast": [
+     {
+      "who": "lucia",
+      "x": 760,
+      "y": 1680,
+      "s": 1.8,
+      "pose": "hold",
+      "look": -1
+     }
+    ],
+    "candle": [
+     420,
+     1680
+    ]
+   },
+   "B_view": [
+    0.58,
+    0.62,
+    1.4
+   ]
+  }
+ ],
+ "serie": "PISO 33",
+ "titulo": "EL ÚLTIMO RESCATE",
+ "cover": {
+  "bg_beat": {
+   "scene": "bite",
+   "bitten": true
+  },
+  "center": [
+   0.5,
+   0.5
+  ],
+  "zoom": 1.12
+ }
+}

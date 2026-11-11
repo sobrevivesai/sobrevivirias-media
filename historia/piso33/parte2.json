@@ -1,0 +1,375 @@
+{
+ "parte": 2,
+ "voz": "em_alex",
+ "velocidad": 1.0,
+ "beats": [
+  {
+   "scene": "results",
+   "say": "El sesenta y cuatro por ciento eligió abrir la puerta.",
+   "no_caps": true,
+   "A": [
+    "Abrirle la puerta",
+    64
+   ],
+   "B": [
+    "No abrir",
+    36
+   ],
+   "A_beat": {
+    "scene": "peephole"
+   },
+   "A_view": [
+    0.5,
+    0.45,
+    1.3
+   ],
+   "B_beat": {
+    "scene": "door",
+    "cast": [
+     {
+      "who": "you",
+      "x": 330,
+      "y": 1680,
+      "s": 1.5,
+      "look": 1
+     }
+    ]
+   },
+   "B_view": [
+    0.5,
+    0.55,
+    1.25
+   ],
+   "min": 3.8
+  },
+  {
+   "scene": "door",
+   "say": "Abres. Ella entra corriendo... y cierras justo a tiempo.",
+   "cap": "Abres. Ella entra corriendo... y cierras justo a tiempo.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 300,
+     "y": 1680,
+     "s": 1.45,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 760,
+     "y": 1680,
+     "s": 1.4,
+     "pose": "walk",
+     "dx": -160,
+     "look": -1,
+     "bag": true
+    }
+   ],
+   "hud": {
+    "dia": 1,
+    "agua": 150,
+    "comida": 6
+   },
+   "shake": 30,
+   "sfx": "boom",
+   "zoom": [
+    1.12,
+    1.0
+   ]
+  },
+  {
+   "scene": "door_bang",
+   "say": "Del otro lado, algo golpea. Una vez. Otra. Otra.",
+   "cap": "Del otro lado, algo golpea. Una vez. Otra. Otra.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 160,
+     "y": 1680,
+     "s": 1.4,
+     "look": 1,
+     "pose": "wall"
+    },
+    {
+     "who": "lucia",
+     "x": 340,
+     "y": 1680,
+     "s": 1.35,
+     "pose": "hold",
+     "look": 1,
+     "bag": true
+    }
+   ],
+   "hud": {
+    "dia": 1,
+    "agua": 150,
+    "comida": 6
+   },
+   "knocks": [
+    1.7,
+    2.6,
+    3.4
+   ],
+   "sfx": "heart,groan",
+   "zoom": [
+    1.0,
+    1.15
+   ],
+   "red": true
+  },
+  {
+   "scene": "dark",
+   "say": "No hablan. No se mueven. Casi no respiran. Hasta que, por fin, los golpes paran.",
+   "cap": "No hablan. No se mueven. Casi no respiran. Hasta que, por fin, los golpes paran.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 380,
+     "y": 1680,
+     "s": 1.3,
+     "pose": "sit"
+    },
+    {
+     "who": "lucia",
+     "x": 640,
+     "y": 1680,
+     "s": 1.3,
+     "pose": "sit"
+    }
+   ],
+   "hud": {
+    "dia": 1,
+    "agua": 150,
+    "comida": 6
+   },
+   "sfx": "heart"
+  },
+  {
+   "scene": "lucia",
+   "say": "Se llama Lucía. Trae una mochila con una linterna, pilas... y nada de comida.",
+   "cap": "Se llama Lucía. Trae una mochila con una linterna, pilas... y nada de comida.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 260,
+     "y": 1680,
+     "s": 1.5,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 820,
+     "y": 1680,
+     "s": 1.5,
+     "look": -1,
+     "bag": true
+    }
+   ],
+   "candle": [
+    540,
+    1680
+   ],
+   "hud": {
+    "dia": 1,
+    "agua": 150,
+    "comida": 6
+   }
+  },
+  {
+   "scene": "card",
+   "say": "Ahora son dos. Y la comida que tenías para seis días... alcanza para tres.",
+   "cap": "Ahora son dos. Y la comida que tenías para seis días... alcanza para tres.",
+   "card": {
+    "icon": "can",
+    "kicker": "COMIDA",
+    "title": "AHORA SON DOS",
+    "units": {
+     "n": 6,
+     "kind": "can",
+     "cols": 6,
+     "cross": 3,
+     "cross_t": 0.6
+    },
+    "big": "de 6 días a 3",
+    "big_t": 3.0
+   },
+   "hud": {
+    "dia": 1,
+    "agua": 150,
+    "comida": 6
+   },
+   "hud_anim": {
+    "comida": [
+     6,
+     3,
+     0.62,
+     0.63
+    ]
+   },
+   "sfx": "hit",
+   "y": 1640
+  },
+  {
+   "scene": "window_day",
+   "say": "Día cuatro. Quedan ciento diez litros de agua. La ciudad ya no hace ruido.",
+   "cap": "Día 4. Quedan 110 litros de agua. La ciudad ya no hace ruido.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 420,
+     "y": 1690,
+     "s": 1.4,
+     "face": false
+    },
+    {
+     "who": "lucia",
+     "x": 800,
+     "y": 1690,
+     "s": 1.35,
+     "face": false
+    }
+   ],
+   "hud": {
+    "dia": 4,
+    "agua": 110,
+    "comida": 2
+   }
+  },
+  {
+   "scene": "signal",
+   "say": "Pero cada noche, a la misma hora, alguien hace señales con una linterna desde la terraza de enfrente.",
+   "cap": "Pero cada noche, a la misma hora, alguien hace señales con una linterna desde la terraza de enfrente.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 300,
+     "y": 1690,
+     "s": 1.5,
+     "face": false
+    }
+   ],
+   "hud": {
+    "dia": 4,
+    "agua": 110,
+    "comida": 2
+   },
+   "zoom": [
+    1.0,
+    1.12
+   ],
+   "center": [
+    0.55,
+    0.5
+   ]
+  },
+  {
+   "scene": "lucia",
+   "say": "Y hay algo que no te deja dormir. Lucía no deja de tocarse el brazo.",
+   "cap": "Y hay algo que no te deja dormir. Lucía no deja de tocarse el brazo.",
+   "cast": [
+    {
+     "who": "lucia",
+     "x": 760,
+     "y": 1680,
+     "s": 1.8,
+     "pose": "hold",
+     "look": -1
+    }
+   ],
+   "candle": [
+    420,
+    1680
+   ],
+   "hud": {
+    "dia": 4,
+    "agua": 110,
+    "comida": 2
+   },
+   "sfx": "heart",
+   "zoom": [
+    1.05,
+    1.3
+   ],
+   "center": [
+    0.6,
+    0.62
+   ]
+  },
+  {
+   "scene": "bite",
+   "say": "Lo tiene vendado. Y cada vez que le preguntas... cambia de tema.",
+   "cap": "Lo tiene vendado. Y cada vez que le preguntas... cambia de tema.",
+   "sfx": "heart,hit",
+   "zoom": [
+    1.0,
+    1.15
+   ],
+   "red": true,
+   "pausa": 0.6
+  },
+  {
+   "scene": "choice",
+   "say": "¿Le pides que se saque la venda... o confías en ella?",
+   "no_caps": true,
+   "sfx": "hit",
+   "A": "Pedirle que se saque la venda",
+   "B": "Confiar en ella y no preguntar",
+   "A_beat": {
+    "scene": "bite"
+   },
+   "A_view": [
+    0.5,
+    0.5,
+    1.15
+   ],
+   "B_beat": {
+    "scene": "lucia",
+    "cast": [
+     {
+      "who": "lucia",
+      "x": 760,
+      "y": 1680,
+      "s": 1.8,
+      "pose": "hold",
+      "look": -1
+     }
+    ],
+    "candle": [
+     420,
+     1680
+    ]
+   },
+   "B_view": [
+    0.58,
+    0.62,
+    1.4
+   ]
+  }
+ ],
+ "serie": "PISO 33",
+ "titulo": "LA VENDA",
+ "cover": {
+  "bg_beat": {
+   "scene": "lucia",
+   "cast": [
+    {
+     "who": "lucia",
+     "x": 760,
+     "y": 1680,
+     "s": 1.8,
+     "pose": "hold",
+     "look": -1
+    }
+   ],
+   "candle": [
+    420,
+    1680
+   ]
+  },
+  "center": [
+   0.58,
+   0.55
+  ],
+  "zoom": 1.12
+ }
+}
