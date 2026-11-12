@@ -18,6 +18,10 @@
 4. Parte 4, LA ESCALERA: ganó ir juntos (61%). Día 7, 5:30: bajan 33 pisos. Un zombi pasa a centímetros en el piso 12. Cruzan la calle. 6:50: portón del hospital, los soldados revisan brazos, cuello y piernas. **Elección pendiente:** A) decir la verdad sobre la mordida / B) esconder la mordida bajo la campera.
 5. Parte 5, LA VERDAD: ganó decir la verdad (57%). Los soldados los frenan; Lucía muestra la mordida: 6 días, sin fiebre. "Si es verdad, vale más que todo este hospital". La llevan en el helicóptero a un laboratorio en el norte, pero tú no estás en la lista. Lucía no quiere irse sin ti. El ruido de las aspas atrae a la calle entera. Quedan 3 minutos para el despegue. **Elección pendiente:** A) dejar que Lucía se vaya sola / B) subir a escondidas al helicóptero.
 
+## Correcciones de coherencia (aplicar desde la Parte 6)
+- **Agua:** los 50 L quedaron en el departamento del piso 33. Fuera del edificio el contador de agua tiene que mostrar solo lo que llevan encima (por ejemplo 2 L en las mochilas), no 50 L.
+- **Títulos y textos:** siempre en segunda persona ("Dices la verdad…"), nunca en primera ("Dije…"), igual que la narración.
+
 ## Hilos abiertos para usar
 - Quién hacía señales con la linterna en la terraza de enfrente.
 - ¿Lucía es inmune? (un hospital con soldados podría querer estudiarla).
