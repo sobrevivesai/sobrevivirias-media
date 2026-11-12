@@ -1,0 +1,336 @@
+{
+ "parte": 5,
+ "voz": "em_alex",
+ "velocidad": 1.0,
+ "beats": [
+  {
+   "scene": "results",
+   "say": "El cincuenta y siete por ciento eligió decir la verdad.",
+   "no_caps": true,
+   "A": [
+    "Decir la verdad",
+    57
+   ],
+   "B": [
+    "Esconder la mordida",
+    43
+   ],
+   "A_beat": {
+    "scene": "hospital",
+    "searchlight": true
+   },
+   "A_view": [
+    0.5,
+    0.55,
+    1.2
+   ],
+   "B_beat": {
+    "scene": "bite",
+    "bitten": true
+   },
+   "B_view": [
+    0.5,
+    0.5,
+    1.15
+   ],
+   "min": 3.8
+  },
+  {
+   "scene": "hospital",
+   "say": "Levantas la mano y lo dices en voz alta: ella está mordida.",
+   "cap": "Levantas la mano y lo dices en voz alta: ella está mordida.",
+   "searchlight": true,
+   "cast": [
+    {
+     "who": "you",
+     "x": 300,
+     "y": 1900,
+     "s": 1.1,
+     "pose": "point",
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 160,
+     "y": 1900,
+     "s": 1.05,
+     "pose": "hold",
+     "look": 1
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "sfx": "heart",
+   "zoom": [
+    1.0,
+    1.12
+   ],
+   "center": [
+    0.4,
+    0.62
+   ]
+  },
+  {
+   "scene": "hospital",
+   "say": "Silencio. Los soldados se giran hacia ustedes. Uno grita: ¡atrás, los dos!",
+   "cap": "Silencio. Los soldados se giran hacia ustedes. Uno grita: ¡Atrás, los dos!",
+   "searchlight": true,
+   "red": true,
+   "sfx": "hit",
+   "shake": 18,
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "zoom": [
+    1.15,
+    1.3
+   ],
+   "center": [
+    0.5,
+    0.68
+   ]
+  },
+  {
+   "scene": "bite",
+   "say": "Lucía se sube la manga. La mordida tiene seis días... y no tiene fiebre.",
+   "cap": "Lucía se sube la manga. La mordida tiene 6 días... y no tiene fiebre.",
+   "bitten": true,
+   "tears": true,
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "sfx": "heart",
+   "zoom": [
+    1.05,
+    1.22
+   ]
+  },
+  {
+   "scene": "card",
+   "say": "Ante una mordida, la OMS recomienda lavar la herida con agua y jabón durante quince minutos. Y se considera fiebre desde los treinta y ocho grados.",
+   "cap": "Ante una mordida, la OMS recomienda lavar la herida con agua y jabón durante 15 minutos. Y se considera fiebre desde los 38 grados.",
+   "card": {
+    "icon": "drop",
+    "kicker": "MORDIDAS",
+    "title": "LAVAR 15 MIN",
+    "rows": [
+     [
+      "Agua y jabón",
+      "15 minutos"
+     ],
+     [
+      "Fiebre desde",
+      "38 grados"
+     ]
+    ],
+    "big": "Primero, lavar",
+    "big_t": 3.4
+   },
+   "y": 1640
+  },
+  {
+   "scene": "hospital",
+   "say": "Los soldados se miran. Uno dice: si es verdad, ella vale más que todo este hospital.",
+   "cap": "Los soldados se miran. Uno dice: si es verdad, ella vale más que todo este hospital.",
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "zoom": [
+    1.2,
+    1.35
+   ],
+   "center": [
+    0.5,
+    0.66
+   ],
+   "pausa": 0.4
+  },
+  {
+   "scene": "hospital",
+   "say": "Arriba, el helicóptero la espera. Hay un laboratorio en el norte.",
+   "cap": "Arriba, el helicóptero la espera. Hay un laboratorio en el norte.",
+   "searchlight": true,
+   "sfx": "rotor",
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "zoom": [
+    1.1,
+    1.3
+   ],
+   "center": [
+    0.5,
+    0.3
+   ]
+  },
+  {
+   "scene": "hospital",
+   "say": "Pero solo sube ella. Tú no estás en la lista.",
+   "cap": "Pero solo sube ella. Tú no estás en la lista.",
+   "cast": [
+    {
+     "who": "you",
+     "x": 470,
+     "y": 1940,
+     "s": 1.6,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 730,
+     "y": 1940,
+     "s": 1.55,
+     "look": -1,
+     "pose": "hold",
+     "tears": true
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "sfx": "hit",
+   "red": true,
+   "zoom": [
+    1.2,
+    1.35
+   ],
+   "center": [
+    0.5,
+    0.7
+   ]
+  },
+  {
+   "scene": "hospital",
+   "say": "Lucía no te suelta. Dice que sin ti no se va.",
+   "cap": "Lucía no te suelta. Dice que sin ti no se va.",
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "sfx": "heart",
+   "zoom": [
+    1.25,
+    1.4
+   ],
+   "center": [
+    0.5,
+    0.72
+   ],
+   "cast": [
+    {
+     "who": "you",
+     "x": 420,
+     "y": 1960,
+     "s": 1.7,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 690,
+     "y": 1960,
+     "s": 1.65,
+     "look": -1,
+     "pose": "hold",
+     "tears": true
+    }
+   ]
+  },
+  {
+   "scene": "street_side",
+   "say": "Y el ruido de las aspas ya atrajo a la calle entera.",
+   "cap": "Y el ruido de las aspas ya atrajo a la calle entera.",
+   "zombies": 14,
+   "sfx": "groan,rotor",
+   "red": true,
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "zoom": [
+    1.0,
+    1.2
+   ],
+   "center": [
+    0.5,
+    0.62
+   ]
+  },
+  {
+   "scene": "hospital",
+   "say": "Quedan tres minutos para el despegue.",
+   "cap": "Quedan 3 minutos para el despegue.",
+   "searchlight": true,
+   "sfx": "rotor,heart",
+   "hud": {
+    "dia": 7,
+    "agua": 50,
+    "comida": 0
+   },
+   "zoom": [
+    1.3,
+    1.1
+   ],
+   "center": [
+    0.5,
+    0.3
+   ],
+   "pausa": 0.5
+  },
+  {
+   "scene": "choice",
+   "say": "¿La dejas ir sola... o te subes a escondidas?",
+   "no_caps": true,
+   "sfx": "hit",
+   "A": "Dejar que Lucía se vaya sola",
+   "B": "Subir a escondidas al helicóptero",
+   "A_beat": {
+    "scene": "bite",
+    "bitten": true,
+    "tears": true
+   },
+   "A_view": [
+    0.5,
+    0.5,
+    1.15
+   ],
+   "B_beat": {
+    "scene": "hospital",
+    "searchlight": true
+   },
+   "B_view": [
+    0.45,
+    0.2,
+    1.25
+   ]
+  }
+ ],
+ "serie": "PISO 33",
+ "titulo": "LA VERDAD",
+ "cover": {
+  "bg_beat": {
+   "scene": "bite",
+   "bitten": true,
+   "tears": true
+  },
+  "center": [
+   0.5,
+   0.5
+  ],
+  "zoom": 1.12
+ }
+}
