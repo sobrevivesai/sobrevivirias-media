@@ -1,0 +1,474 @@
+{
+ "parte": 6,
+ "voz": "em_alex",
+ "velocidad": 1.0,
+ "beats": [
+  {
+   "scene": "results",
+   "say": "El sesenta y ocho por ciento eligió subir a escondidas.",
+   "no_caps": true,
+   "A": [
+    "Dejar que se vaya sola",
+    32
+   ],
+   "B": [
+    "Subir a escondidas",
+    68
+   ],
+   "A_beat": {
+    "scene": "bite",
+    "bitten": true,
+    "tears": true
+   },
+   "A_view": [
+    0.5,
+    0.5,
+    1.15
+   ],
+   "B_beat": {
+    "scene": "rooftop"
+   },
+   "B_view": [
+    0.5,
+    0.6,
+    1.2
+   ],
+   "min": 3.8
+  },
+  {
+   "scene": "rooftop",
+   "say": "Los soldados corren al portón. Nadie te mira. Subes detrás de Lucía hasta la terraza.",
+   "cap": "Los soldados corren al portón. Nadie te mira. Subes detrás de Lucía hasta la terraza.",
+   "sfx": "rotor",
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "zoom": [
+    1.0,
+    1.12
+   ],
+   "center": [
+    0.5,
+    0.66
+   ],
+   "cast": [
+    {
+     "who": "lucia",
+     "x": 330,
+     "y": 1760,
+     "s": 0.95,
+     "pose": "walk",
+     "dx": 120,
+     "look": 1
+    },
+    {
+     "who": "you",
+     "x": 120,
+     "y": 1800,
+     "s": 1.0,
+     "pose": "walk",
+     "dx": 140,
+     "look": 1
+    }
+   ]
+  },
+  {
+   "scene": "street_side",
+   "say": "Abajo, la horda ya empuja el portón.",
+   "cap": "Abajo, la horda ya empuja el portón.",
+   "zombies": 18,
+   "sfx": "groan,rotor",
+   "red": true,
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "zoom": [
+    1.0,
+    1.2
+   ],
+   "center": [
+    0.5,
+    0.64
+   ]
+  },
+  {
+   "scene": "rooftop",
+   "say": "La puerta del helicóptero está abierta. Te metes adentro sin que nadie te vea.",
+   "cap": "La puerta del helicóptero está abierta. Te metes adentro sin que nadie te vea.",
+   "sfx": "rotor,heart",
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "zoom": [
+    1.15,
+    1.35
+   ],
+   "center": [
+    0.5,
+    0.6
+   ],
+   "cast": [
+    {
+     "who": "you",
+     "x": 420,
+     "y": 1600,
+     "s": 0.9,
+     "pose": "walk",
+     "dx": 140,
+     "look": 1
+    }
+   ]
+  },
+  {
+   "scene": "heli_in",
+   "say": "Te escondes detrás de las cajas de medicinas. Casi no respiras.",
+   "cap": "Te escondes detrás de las cajas de medicinas. Casi no respiras.",
+   "sfx": "heart",
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "zoom": [
+    1.0,
+    1.2
+   ],
+   "center": [
+    0.62,
+    0.62
+   ],
+   "cast": [
+    {
+     "who": "you",
+     "x": 1010,
+     "y": 1690,
+     "s": 1.25,
+     "pose": "sit",
+     "look": -1,
+     "behind": true
+    }
+   ]
+  },
+  {
+   "scene": "heli_in",
+   "say": "Suben Lucía y un soldado. Las aspas rugen... y despegan.",
+   "cap": "Suben Lucía y un soldado. Las aspas rugen... y despegan.",
+   "sfx": "rotor",
+   "shake": 22,
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "zoom": [
+    1.05,
+    1.15
+   ],
+   "center": [
+    0.5,
+    0.62
+   ],
+   "cast": [
+    {
+     "who": "you",
+     "x": 1010,
+     "y": 1690,
+     "s": 1.25,
+     "pose": "sit",
+     "look": -1,
+     "behind": true
+    },
+    {
+     "who": "lucia",
+     "x": 240,
+     "y": 1520,
+     "s": 1.1,
+     "pose": "sit",
+     "look": 1
+    },
+    {
+     "who": "soldier",
+     "x": 420,
+     "y": 2090,
+     "s": 1.55,
+     "look": -1
+    }
+   ],
+   "y": 1760
+  },
+  {
+   "scene": "card",
+   "say": "La temperatura baja unos seis grados y medio por cada mil metros de altura. Y bajo treinta y cinco grados en el cuerpo, empieza la hipotermia.",
+   "cap": "La temperatura baja unos 6,5 grados por cada 1000 metros de altura. Y bajo 35 grados en el cuerpo, empieza la hipotermia.",
+   "card": {
+    "icon": "snow",
+    "kicker": "ALTURA",
+    "title": "EL FRÍO",
+    "rows": [
+     [
+      "Cada km",
+      "6,5 grados menos"
+     ],
+     [
+      "Hipotermia",
+      "bajo 35 grados"
+     ]
+    ],
+    "big": "Abrígate",
+    "big_t": 3.4
+   },
+   "y": 1640
+  },
+  {
+   "scene": "heli_in",
+   "say": "Veinte minutos después, el soldado se acerca a revisar la carga.",
+   "cap": "Veinte minutos después, el soldado se acerca a revisar la carga.",
+   "sfx": "heart",
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "zoom": [
+    1.1,
+    1.25
+   ],
+   "center": [
+    0.55,
+    0.68
+   ],
+   "cast": [
+    {
+     "who": "you",
+     "x": 1010,
+     "y": 1690,
+     "s": 1.25,
+     "pose": "sit",
+     "look": -1,
+     "behind": true
+    },
+    {
+     "who": "lucia",
+     "x": 240,
+     "y": 1520,
+     "s": 1.1,
+     "pose": "sit",
+     "look": 1
+    },
+    {
+     "who": "soldier",
+     "x": 230,
+     "y": 2090,
+     "s": 1.55,
+     "pose": "walk",
+     "dx": 230,
+     "look": 1
+    }
+   ],
+   "y": 1760
+  },
+  {
+   "scene": "heli_in",
+   "say": "Te encuentra. Grita: ¡hay un polizón a bordo!",
+   "cap": "Te encuentra. Grita: ¡Hay un polizón a bordo!",
+   "sfx": "hit",
+   "red": true,
+   "shake": 16,
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "zoom": [
+    1.1,
+    1.22
+   ],
+   "center": [
+    0.6,
+    0.72
+   ],
+   "cast": [
+    {
+     "who": "you",
+     "x": 1010,
+     "y": 2090,
+     "s": 1.55,
+     "look": -1
+    },
+    {
+     "who": "soldier",
+     "x": 560,
+     "y": 2090,
+     "s": 1.55,
+     "pose": "point",
+     "look": 1
+    }
+   ],
+   "y": 1760
+  },
+  {
+   "scene": "heli_in",
+   "say": "Lucía se pone delante de ti. Si tú bajas, ella también.",
+   "cap": "Lucía se pone delante de ti. Si tú bajas, ella también.",
+   "sfx": "heart",
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "zoom": [
+    1.1,
+    1.22
+   ],
+   "center": [
+    0.6,
+    0.72
+   ],
+   "cast": [
+    {
+     "who": "you",
+     "x": 1060,
+     "y": 2090,
+     "s": 1.55,
+     "look": -1
+    },
+    {
+     "who": "lucia",
+     "x": 800,
+     "y": 2090,
+     "s": 1.5,
+     "pose": "hold",
+     "look": -1,
+     "tears": true
+    },
+    {
+     "who": "soldier",
+     "x": 420,
+     "y": 2090,
+     "s": 1.55,
+     "look": 1
+    }
+   ],
+   "y": 1760
+  },
+  {
+   "scene": "heli_in",
+   "say": "El piloto avisa: con tu peso, no alcanza el combustible para llegar al norte.",
+   "cap": "El piloto avisa: con tu peso, no alcanza el combustible para llegar al norte.",
+   "sfx": "hit",
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "zoom": [
+    1.1,
+    1.3
+   ],
+   "center": [
+    0.4,
+    0.35
+   ],
+   "pausa": 0.4
+  },
+  {
+   "scene": "heli_in",
+   "say": "O aterrizan a cargar combustible en plena zona infectada... o tiran las medicinas.",
+   "cap": "O aterrizan a cargar combustible en plena zona infectada... o tiran las medicinas.",
+   "sfx": "rotor,heart",
+   "red": true,
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "zoom": [
+    1.1,
+    1.22
+   ],
+   "center": [
+    0.6,
+    0.72
+   ],
+   "cast": [
+    {
+     "who": "you",
+     "x": 1060,
+     "y": 2090,
+     "s": 1.55,
+     "look": -1
+    },
+    {
+     "who": "lucia",
+     "x": 800,
+     "y": 2090,
+     "s": 1.5,
+     "pose": "hold",
+     "look": -1
+    },
+    {
+     "who": "soldier",
+     "x": 380,
+     "y": 2090,
+     "s": 1.55,
+     "look": 1
+    }
+   ],
+   "y": 1760
+  },
+  {
+   "scene": "choice",
+   "say": "¿Aterrizan en zona infectada... o tiran las medicinas?",
+   "no_caps": true,
+   "sfx": "hit",
+   "A": "Aterrizar a cargar combustible",
+   "B": "Tirar las cajas de medicinas",
+   "A_beat": {
+    "scene": "street_side",
+    "zombies": 16
+   },
+   "A_view": [
+    0.5,
+    0.62,
+    1.2
+   ],
+   "B_beat": {
+    "scene": "heli_in"
+   },
+   "B_view": [
+    0.6,
+    0.62,
+    1.2
+   ]
+  }
+ ],
+ "serie": "PISO 33",
+ "titulo": "EL POLIZÓN",
+ "cover": {
+  "bg_beat": {
+   "scene": "heli_in",
+   "cast": [
+    {
+     "who": "you",
+     "x": 1010,
+     "y": 1690,
+     "s": 1.25,
+     "pose": "sit",
+     "look": -1,
+     "behind": true
+    }
+   ]
+  },
+  "center": [
+   0.6,
+   0.5
+  ],
+  "zoom": 1.12
+ }
+}

@@ -310,6 +310,27 @@ def bg(kind):
         for x in range(0, BW + 40, 46): sk.rect([x, 1180, x + 8, 1560], 0, fill=(86, 86, 92))
         sk.rect([0, 1196, BW, 1210], 0, fill=(86, 86, 92)); sk.rect([0, 1500, BW, 1514], 0, fill=(86, 86, 92))
         sk.srect([BW / 2 - 150, 1170, BW / 2 + 150, 1570], fill=(150, 150, 156))
+    elif kind == "rooftop":
+        img = grad(NSKY0, NSKY1, BW * K, BH * K); sk = SK(img, K, 14)
+        r = random.Random(14); skyline(sk, r, 1320, 200, 560, NB2, 0.08, 120, 240)
+        sk.srect([-10, 1300, BW + 10, BH + 10], fill=(96, 94, 104)); sk.rect([-10, 1300, BW + 10, 1316], 0, fill=STEEL)
+        sk.sell([170, 1560, BW - 170, 1900], fill=(118, 116, 124)); sk.sell([230, 1590, BW - 230, 1870], fill=(96, 94, 104), w=3)
+        sk.d.text(((BW / 2 - 50) * K, 1630 * K), "H", font=font(FONT_B, 180 * K), fill=(236, 220, 150))
+        HC = (74, 86, 66)
+        sk.srect([880, 1250, 1240, 1290], fill=HC); sk.srect([1180, 1120, 1230, 1290], fill=HC)
+        sk.sell([260, 1080, 960, 1520], fill=HC)
+        sk.spoly([(300, 1180), (420, 1110), (420, 1330), (290, 1330)], fill=(120, 150, 160))
+        sk.srect([480, 1180, 700, 1470], fill=(30, 30, 34))
+        sk.srect([590, 1020, 630, 1085], fill=(56, 60, 50))
+        for xx in (300, 880): sk.srect([xx, 1520, xx + 24, 1580], fill=(56, 60, 50))
+        sk.srect([220, 1580, 960, 1606], fill=(56, 60, 50))
+        sk.srect([60, 1220, 200, 1600], fill=(78, 76, 86)); sk.srect([90, 1290, 170, 1600], fill=(44, 42, 50))
+    elif kind == "heli_in":
+        room(sk, (70, 78, 66), (50, 54, 48), 1700)
+        for x in range(0, BW, 210): sk.line([(x, 0), (x, 1690)], fill=(60, 66, 56), width=10)
+        for (cx, cy) in ((300, 640), (760, 640)): sk.sell([cx - 150, cy - 150, cx + 150, cy + 150], fill=(90, 98, 86)); sk.sell([cx - 118, cy - 118, cx + 118, cy + 118], fill=(26, 26, 40))
+        sk.srect([60, 1380, 560, 1430], fill=(110, 76, 60)); sk.srect([80, 1430, 110, 1700], fill=STEEL); sk.srect([510, 1430, 540, 1700], fill=STEEL)
+        sk.srect([BW / 2 - 60, 150, BW / 2 + 60, 200], fill=REDC)
     else:
         raise ValueError(kind)
     out = img.resize((BW, BH), Image.LANCZOS)
@@ -320,6 +341,8 @@ def bg(kind):
     if kind == "radio": out = glow(out, BW // 2 + 110, 1115, 220, (50, 120, 60), 0.9)
     if kind == "bite": out = glow(out, BW // 2, 900, 700, (90, 60, 30), 0.6)
     if kind == "stairs": out = glow(out, BW // 2, 280, 300, (40, 110, 60), 0.8)
+    if kind == "heli_in": out = glow(out, BW // 2, 200, 700, (120, 30, 30), 0.8)
+    if kind == "rooftop": out = glow(out, 590, 1330, 300, (60, 60, 40), 0.6)
     if kind == "bath": out = glow(out, BW // 2, 300, 600, (70, 70, 60), 0.5)
     # textura de papel
     n = np.random.default_rng(hash(kind) % 1000).normal(0, 5, (BH, BW, 1))
@@ -403,7 +426,24 @@ def dynamic(kind, sd, t, T, dur, b):
         if b.get("searchlight"):
             ang = math.sin(T * 0.6) * 0.5; sx, sy = 980, 1100
             sd.poly([(sx, sy), (sx - 600 + ang * 300, 1900), (sx - 200 + ang * 300, 1900)], fill=(255, 250, 220, 50))
+    if kind == "rooftop":
+        bl = 560 * (0.35 + 0.65 * abs(math.sin(T * 24))); sd.line([(610 - bl, 1012), (610 + bl, 1012)], fill=(40, 40, 44, 200), width=12)
+        sd.line([(610 - 560, 1012), (610 + 560, 1012)], fill=(40, 40, 44, 60), width=26)
+        if int(t * 6) % 2 == 0: sd.ellipse([1196, 1100, 1216, 1120], fill=REDC)
+    if kind == "heli_in":
+        for (cx, cy) in ((300, 640), (760, 640)):
+            rr = random.Random(int(cx))
+            for i in range(26):
+                x = cx - 110 + ((rr.uniform(0, 220) - T * 90 * rr.uniform(0.5, 1.2)) % 220); y = cy - 20 + rr.uniform(0, 110)
+                if (x - cx) ** 2 + (y - cy) ** 2 < 108 ** 2: sd.ellipse([x - 5, y - 5, x + 5, y + 5], fill=(LIT if i % 3 else FIRE))
+        for c in b.get("cast", []):
+            if c.get("behind"): figure(sd, c["x"], c["y"], c["s"], c.get("pose", "stand"), T + c.get("ph", 0), c.get("who", "you"), c.get("look", 0))
+        for (x0, y0, x1, y1) in ((560, 1380, 900, 1700), (900, 1480, 1180, 1700), (600, 1100, 880, 1380)):
+            sd.srect([x0, y0, x1, y1], fill=WOOD); sd.srect([x0 + 14, y0 + 14, x1 - 14, y1 - 14], fill=None, w=3)
+            cx, cy = (x0 + x1) / 2, (y0 + y1) / 2; sd.srect([cx - 50, cy - 50, cx + 50, cy + 50], fill=CREAM, w=3)
+            sd.rect([cx - 12, cy - 36, cx + 12, cy + 36], 0, fill=REDC); sd.rect([cx - 36, cy - 12, cx + 36, cy + 12], 0, fill=REDC)
     for c in b.get("cast", []):
+        if c.get("behind"): continue
         x = c["x"] + c.get("dx", 0) * t / max(1, dur)
         hand = figure(sd, x, c["y"], c["s"], c.get("pose", "stand"), T + c.get("ph", 0), c.get("who", "you"), c.get("look", 0), c.get("face", True), c.get("bag"), c.get("tears", False))
         if c.get("pose") == "flash":
@@ -423,6 +463,11 @@ def draw_card(sd, t, dur, c):
         sd.rect([BW / 2 - 50, 340, BW / 2 + 50, 490], 10, fill=REDC, outline=OUT, width=5); sd.rect([BW / 2 - 50, 380, BW / 2 + 50, 440], 0, fill=CREAM)
     elif c.get("icon") == "stairs":
         for i in range(5): sd.rect([BW / 2 - 100 + i * 40, 480 - i * 30, BW / 2 - 60 + i * 40, 490], 0, fill=OUT)
+    elif c.get("icon") == "snow":
+        for k_ in range(3):
+            a_ = k_ * math.pi / 3; dx, dy = 80 * math.cos(a_), 80 * math.sin(a_)
+            sd.line([(BW / 2 - dx, 420 - dy), (BW / 2 + dx, 420 + dy)], fill=(100, 160, 200), width=12)
+        sd.ellipse([BW / 2 - 18, 402, BW / 2 + 18, 438], fill=(100, 160, 200), outline=OUT, width=4)
     elif c.get("icon") == "walk":
         figure(sd, BW / 2, 500, 0.6, "walk", t * 3, "you")
     def ctext(txt, yy, f, col, a=255):
