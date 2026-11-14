@@ -1,0 +1,424 @@
+{
+ "parte": 7,
+ "voz": "em_alex",
+ "velocidad": 1.0,
+ "beats": [
+  {
+   "scene": "results",
+   "say": "El sesenta y seis por ciento eligió tirar las medicinas.",
+   "no_caps": true,
+   "A": [
+    "Aterrizar en zona infectada",
+    34
+   ],
+   "B": [
+    "Tirar las medicinas",
+    66
+   ],
+   "A_beat": {
+    "scene": "street_side",
+    "zombies": 16
+   },
+   "A_view": [
+    0.5,
+    0.62,
+    1.2
+   ],
+   "B_beat": {
+    "scene": "heli_in",
+    "door_open": true
+   },
+   "B_view": [
+    0.62,
+    0.45,
+    1.2
+   ],
+   "min": 3.8
+  },
+  {
+   "scene": "heli_in",
+   "say": "El soldado duda. Lucía abre la puerta y entra un viento helado.",
+   "cap": "El soldado duda. Lucía abre la puerta y entra un viento helado.",
+   "door_open": true,
+   "sfx": "rotor",
+   "shake": 12,
+   "zoom": [
+    1.0,
+    1.12
+   ],
+   "center": [
+    0.6,
+    0.6
+   ],
+   "y": 1760,
+   "cast": [
+    {
+     "who": "soldier",
+     "x": 300,
+     "y": 2090,
+     "s": 1.55,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 760,
+     "y": 2090,
+     "s": 1.5,
+     "pose": "hold",
+     "look": 1
+    },
+    {
+     "who": "you",
+     "x": 1060,
+     "y": 2090,
+     "s": 1.55,
+     "look": -1
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "door_t": 0.35
+  },
+  {
+   "scene": "heli_in",
+   "say": "Empujas la primera caja al vacío. Después, otra.",
+   "cap": "Empujas la primera caja al vacío. Después, otra.",
+   "door_open": true,
+   "boxes": [
+    0
+   ],
+   "toss": [
+    [
+     2,
+     0.15
+    ],
+    [
+     1,
+     0.55
+    ]
+   ],
+   "sfx": "rotor,hit",
+   "zoom": [
+    1.05,
+    1.15
+   ],
+   "center": [
+    0.62,
+    0.58
+   ],
+   "y": 1760,
+   "cast": [
+    {
+     "who": "you",
+     "x": 760,
+     "y": 2090,
+     "s": 1.55,
+     "pose": "point",
+     "look": 1
+    },
+    {
+     "who": "soldier",
+     "x": 260,
+     "y": 2090,
+     "s": 1.55,
+     "look": 1
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   }
+  },
+  {
+   "scene": "heli_in",
+   "say": "El soldado aprieta los dientes... y te ayuda con la última.",
+   "cap": "El soldado aprieta los dientes... y te ayuda con la última.",
+   "door_open": true,
+   "boxes": [],
+   "toss": [
+    [
+     0,
+     0.45
+    ]
+   ],
+   "sfx": "rotor,hit",
+   "zoom": [
+    1.05,
+    1.15
+   ],
+   "center": [
+    0.6,
+    0.6
+   ],
+   "y": 1760,
+   "cast": [
+    {
+     "who": "soldier",
+     "x": 420,
+     "y": 2090,
+     "s": 1.55,
+     "pose": "point",
+     "look": 1
+    },
+    {
+     "who": "you",
+     "x": 700,
+     "y": 2090,
+     "s": 1.55,
+     "pose": "point",
+     "look": 1
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   }
+  },
+  {
+   "scene": "heli_in",
+   "say": "Más liviano, el helicóptero sube. Ahora sí alcanza el combustible... por poco.",
+   "cap": "Más liviano, el helicóptero sube. Ahora sí alcanza el combustible... por poco.",
+   "boxes": [],
+   "sfx": "rotor",
+   "zoom": [
+    1.0,
+    1.1
+   ],
+   "center": [
+    0.5,
+    0.55
+   ],
+   "y": 1760,
+   "cast": [
+    {
+     "who": "lucia",
+     "x": 240,
+     "y": 1520,
+     "s": 1.1,
+     "pose": "sit",
+     "look": 1
+    },
+    {
+     "who": "you",
+     "x": 440,
+     "y": 1520,
+     "s": 1.1,
+     "pose": "sit",
+     "look": -1
+    },
+    {
+     "who": "soldier",
+     "x": 900,
+     "y": 2090,
+     "s": 1.55,
+     "look": -1
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   }
+  },
+  {
+   "scene": "snow_lab",
+   "say": "Dos horas después, entre la nieve, aparece el laboratorio.",
+   "cap": "Dos horas después, entre la nieve, aparece el laboratorio.",
+   "heli_fly": true,
+   "sfx": "rotor",
+   "zoom": [
+    1.0,
+    1.08
+   ],
+   "center": [
+    0.5,
+    0.5
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "y": 1780
+  },
+  {
+   "scene": "snow_lab",
+   "say": "Pero no hay ni una luz encendida. Y la radio no responde.",
+   "cap": "Pero no hay ni una luz encendida. Y la radio no responde.",
+   "sfx": "heart",
+   "zoom": [
+    1.1,
+    1.3
+   ],
+   "center": [
+    0.5,
+    0.62
+   ],
+   "pausa": 0.4,
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "y": 1780
+  },
+  {
+   "scene": "snow_lab",
+   "say": "Entonces, en el techo, alguien hace señales con una linterna. Tres destellos.",
+   "cap": "Entonces, en el techo, alguien hace señales con una linterna. Tres destellos.",
+   "flashes": true,
+   "flash_t": 1.6,
+   "sfx": "heart",
+   "red": false,
+   "zoom": [
+    1.3,
+    1.6
+   ],
+   "center": [
+    0.62,
+    0.6
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "y": 1780
+  },
+  {
+   "scene": "card",
+   "say": "La señal de auxilio más conocida es repetir algo tres veces: tres fuegos, tres silbidos o tres destellos de luz.",
+   "cap": "La señal de auxilio más conocida es repetir algo tres veces: tres fuegos, tres silbidos o tres destellos de luz.",
+   "card": {
+    "icon": "sos",
+    "kicker": "AUXILIO",
+    "title": "DE A TRES",
+    "rows": [
+     [
+      "Fuegos",
+      "3"
+     ],
+     [
+      "Silbidos",
+      "3"
+     ],
+     [
+      "Destellos",
+      "3"
+     ]
+    ],
+    "big": "Pide ayuda",
+    "big_t": 3.4
+   },
+   "y": 1640
+  },
+  {
+   "scene": "heli_in",
+   "say": "Lucía te aprieta la mano. ¿Quién sigue vivo ahí abajo... y por qué no prende las luces?",
+   "cap": "Lucía te aprieta la mano. ¿Quién sigue vivo ahí abajo... y por qué no prende las luces?",
+   "boxes": [],
+   "sfx": "heart",
+   "zoom": [
+    1.1,
+    1.25
+   ],
+   "center": [
+    0.3,
+    0.6
+   ],
+   "y": 1760,
+   "cast": [
+    {
+     "who": "lucia",
+     "x": 240,
+     "y": 1520,
+     "s": 1.1,
+     "pose": "sit",
+     "look": 1,
+     "tears": true
+    },
+    {
+     "who": "you",
+     "x": 440,
+     "y": 1520,
+     "s": 1.1,
+     "pose": "sit",
+     "look": -1
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   }
+  },
+  {
+   "scene": "heli_in",
+   "say": "El piloto avisa: el combustible se acaba. Tienen que bajar ya.",
+   "cap": "El piloto avisa: el combustible se acaba. Tienen que bajar ya.",
+   "boxes": [],
+   "sfx": "hit",
+   "red": true,
+   "shake": 14,
+   "zoom": [
+    1.1,
+    1.3
+   ],
+   "center": [
+    0.5,
+    0.3
+   ],
+   "pausa": 0.4,
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   }
+  },
+  {
+   "scene": "choice",
+   "say": "¿Aterrizan en el laboratorio... o bajan lejos y llegan a pie?",
+   "no_caps": true,
+   "sfx": "hit",
+   "A": "Aterrizar en el laboratorio",
+   "B": "Bajar lejos y llegar a pie",
+   "A_beat": {
+    "scene": "snow_lab",
+    "flashes": true,
+    "flash_t": 0.3
+   },
+   "A_view": [
+    0.62,
+    0.55,
+    1.5
+   ],
+   "B_beat": {
+    "scene": "snow_lab"
+   },
+   "B_view": [
+    0.5,
+    0.45,
+    1.1
+   ]
+  }
+ ],
+ "serie": "PISO 33",
+ "titulo": "LA SEÑAL",
+ "cover": {
+  "bg_beat": {
+   "scene": "snow_lab",
+   "flashes": true,
+   "flash_t": 0
+  },
+  "center": [
+   0.6,
+   0.55
+  ],
+  "zoom": 1.3
+ }
+}

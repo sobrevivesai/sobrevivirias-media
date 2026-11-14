@@ -331,6 +331,20 @@ def bg(kind):
         for (cx, cy) in ((300, 640), (760, 640)): sk.sell([cx - 150, cy - 150, cx + 150, cy + 150], fill=(90, 98, 86)); sk.sell([cx - 118, cy - 118, cx + 118, cy + 118], fill=(26, 26, 40))
         sk.srect([60, 1380, 560, 1430], fill=(110, 76, 60)); sk.srect([80, 1430, 110, 1700], fill=STEEL); sk.srect([510, 1430, 540, 1700], fill=STEEL)
         sk.srect([BW / 2 - 60, 150, BW / 2 + 60, 200], fill=REDC)
+    elif kind == "snow_lab":
+        img = grad((150, 140, 170), (236, 196, 180), BW * K, BH * K); sk = SK(img, K, 16)
+        sk.spoly([(-20, 1100), (180, 640), (330, 860), (520, 520), (760, 900), (930, 700), (BW + 20, 1000), (BW + 20, 1400), (-20, 1400)], fill=(170, 172, 192))
+        for (px, py) in ((180, 640), (520, 520), (930, 700)):
+            sk.spoly([(px - 70, py + 110), (px, py), (px + 70, py + 110), (px + 30, py + 90), (px, py + 120), (px - 30, py + 90)], fill=(244, 244, 250), w=3)
+        sk.spoly([(-20, 1300), (300, 1180), (700, 1240), (BW + 20, 1160), (BW + 20, BH + 20), (-20, BH + 20)], fill=(232, 234, 242))
+        # laboratorio
+        sk.srect([250, 1080, 900, 1420], fill=(150, 152, 160)); sk.srect([250, 1040, 900, 1084], fill=(240, 242, 248))
+        for wx in range(300, 860, 110): sk.srect([wx, 1150, wx + 70, 1210], fill=(52, 54, 66), w=3); sk.srect([wx, 1270, wx + 70, 1330], fill=(52, 54, 66), w=3)
+        sk.srect([520, 1330, 630, 1420], fill=(70, 72, 82))
+        sk.sline([(820, 1040), (820, 860)], 6, STEEL); sk.sline([(780, 900), (860, 900)], 5, STEEL)
+        sk.sell([330, 1520, 830, 1700], fill=(210, 212, 222)); sk.d.text((540 * K, 1520 * K), "H", font=font(FONT_B, 150 * K), fill=(160, 70, 60))
+        sk.srect([-10, 1420, 250, 1440], fill=(120, 110, 100), w=3)
+        for x in range(0, 250, 50): sk.rect([x, 1360, x + 8, 1430], 0, fill=(110, 100, 94))
     else:
         raise ValueError(kind)
     out = img.resize((BW, BH), Image.LANCZOS)
@@ -436,12 +450,51 @@ def dynamic(kind, sd, t, T, dur, b):
             for i in range(26):
                 x = cx - 110 + ((rr.uniform(0, 220) - T * 90 * rr.uniform(0.5, 1.2)) % 220); y = cy - 20 + rr.uniform(0, 110)
                 if (x - cx) ** 2 + (y - cy) ** 2 < 108 ** 2: sd.ellipse([x - 5, y - 5, x + 5, y + 5], fill=(LIT if i % 3 else FIRE))
+        if b.get("door_open"):
+            dx0, dy0, dx1, dy1 = 930, 300, 1200, 1470
+            sd.rect([dx0, dy0, dx1, dy1], 0, fill=(150, 158, 176))
+            sd.rect([dx0, dy0 + 700, dx1, dy1], 0, fill=(226, 230, 236))
+            sd.poly([(dx0, dy0 + 720), (dx0 + 90, dy0 + 560), (dx0 + 170, dy0 + 690), (dx0 + 240, dy0 + 600), (dx1, dy0 + 700), (dx1, dy0 + 760), (dx0, dy0 + 780)], fill=(196, 202, 214))
+            rr = random.Random(77)
+            for i in range(14):
+                yy = dy0 + 40 + rr.uniform(0, 640); xx = dx0 + ((rr.uniform(0, 270) + T * 900) % 300) - 20
+                sd.line([(xx, yy), (xx + 90, yy)], fill=(255, 255, 255, 150), width=5)
+            sd.sline([(dx0, dy0), (dx1, dy0), (dx1, dy1), (dx0, dy1)], 7, OUT, True)
+            ko = 1 - ease((t / max(0.1, dur) - b.get("door_t", -1)) / 0.15)
+            if ko > 0: sd.srect([dx0, dy0, dx0 + (dx1 - dx0) * ko, dy1], fill=(78, 86, 72), w=6); sd.srect([dx0 + 30, dy0 + 520, dx0 + 70, dy0 + 640], fill=STEEL, w=3) if ko > 0.9 else None
         for c in b.get("cast", []):
             if c.get("behind"): figure(sd, c["x"], c["y"], c["s"], c.get("pose", "stand"), T + c.get("ph", 0), c.get("who", "you"), c.get("look", 0))
-        for (x0, y0, x1, y1) in ((560, 1380, 900, 1700), (900, 1480, 1180, 1700), (600, 1100, 880, 1380)):
-            sd.srect([x0, y0, x1, y1], fill=WOOD); sd.srect([x0 + 14, y0 + 14, x1 - 14, y1 - 14], fill=None, w=3)
-            cx, cy = (x0 + x1) / 2, (y0 + y1) / 2; sd.srect([cx - 50, cy - 50, cx + 50, cy + 50], fill=CREAM, w=3)
-            sd.rect([cx - 12, cy - 36, cx + 12, cy + 36], 0, fill=REDC); sd.rect([cx - 36, cy - 12, cx + 36, cy + 12], 0, fill=REDC)
+        BOXES = ((560, 1380, 900, 1700), (900, 1480, 1180, 1700), (600, 1100, 880, 1380))
+        keep = b.get("boxes", [0, 1, 2]); toss = {int(i): f for i, f in b.get("toss", [])}
+        for bi_ in (0, 1, 2):
+            if bi_ not in keep and bi_ not in toss: continue
+            x0, y0, x1, y1 = BOXES[bi_]; sc = 1.0
+            if bi_ in toss:
+                k_ = (t / max(0.1, dur) - toss[bi_]) / 0.22
+                if k_ >= 1: continue
+                if k_ > 0:
+                    k_ = ease(k_); cx0, cy0 = (x0 + x1) / 2, (y0 + y1) / 2; tx, ty = 1240, 760
+                    sc = 1 - 0.75 * k_; cx_ = lerp(cx0, tx, k_); cy_ = lerp(cy0, ty, k_) - math.sin(k_ * math.pi) * 160
+                    hw, hh = (x1 - x0) / 2 * sc, (y1 - y0) / 2 * sc; x0, y0, x1, y1 = cx_ - hw, cy_ - hh, cx_ + hw, cy_ + hh
+            sd.srect([x0, y0, x1, y1], fill=WOOD); sd.srect([x0 + 14 * sc, y0 + 14 * sc, x1 - 14 * sc, y1 - 14 * sc], fill=None, w=3)
+            cx, cy = (x0 + x1) / 2, (y0 + y1) / 2; q = 50 * sc; sd.srect([cx - q, cy - q, cx + q, cy + q], fill=CREAM, w=3)
+            sd.rect([cx - 12 * sc, cy - 36 * sc, cx + 12 * sc, cy + 36 * sc], 0, fill=REDC); sd.rect([cx - 36 * sc, cy - 12 * sc, cx + 36 * sc, cy + 12 * sc], 0, fill=REDC)
+    if kind == "snow_lab":
+        rr = random.Random(21)
+        for i in range(90):
+            x = (rr.uniform(0, BW) + math.sin(T * 0.8 + i) * 30) % BW; y = (rr.uniform(0, BH) + T * rr.uniform(60, 140)) % BH; r_ = rr.uniform(4, 9)
+            sd.ellipse([x - r_, y - r_, x + r_, y + r_], fill=(255, 255, 255, 200))
+        if b.get("heli_fly"):
+            hx = lerp(BW + 160, BW * 0.62, ease(t / max(1, dur))); hy = 430 + math.sin(t * 1.4) * 14
+            sd.ellipse([hx - 90, hy - 40, hx + 90, hy + 40], fill=(74, 86, 66)); sd.rect([hx + 70, hy - 12, hx + 250, hy + 6], 0, fill=(74, 86, 66)); sd.rect([hx + 236, hy - 38, hx + 254, hy + 6], 0, fill=(74, 86, 66))
+            sd.ellipse([hx - 76, hy - 26, hx - 20, hy + 10], fill=(120, 150, 160))
+            bl = 200 * abs(math.sin(T * 30)); sd.line([(hx - bl, hy - 54), (hx + bl, hy - 54)], fill=(40, 36, 44), width=8); sd.line([(hx, hy - 54), (hx, hy - 40)], fill=(40, 36, 44), width=8)
+            if int(t * 6) % 2 == 0: sd.ellipse([hx - 9, hy + 32, hx + 9, hy + 50], fill=REDC)
+        if b.get("flashes"):
+            fx, fy = 700, 1040; figure(sd, fx, fy, 0.34, "point", T, "other", face=False)
+            ph = (t - b.get("flash_t", 0.6)) % 2.4
+            if t > b.get("flash_t", 0.6) and ph < 1.5 and (ph % 0.5) < 0.28:
+                sd.ellipse([fx + 10, fy - 150, fx + 100, fy - 60], fill=(255, 250, 210, 130)); sd.ellipse([fx + 40, fy - 120, fx + 70, fy - 90], fill=(255, 255, 240))
     for c in b.get("cast", []):
         if c.get("behind"): continue
         x = c["x"] + c.get("dx", 0) * t / max(1, dur)
@@ -468,6 +521,9 @@ def draw_card(sd, t, dur, c):
             a_ = k_ * math.pi / 3; dx, dy = 80 * math.cos(a_), 80 * math.sin(a_)
             sd.line([(BW / 2 - dx, 420 - dy), (BW / 2 + dx, 420 + dy)], fill=(100, 160, 200), width=12)
         sd.ellipse([BW / 2 - 18, 402, BW / 2 + 18, 438], fill=(100, 160, 200), outline=OUT, width=4)
+    elif c.get("icon") == "sos":
+        for k_ in range(3):
+            x_ = BW / 2 - 130 + k_ * 130; sd.ellipse([x_ - 42, 378, x_ + 42, 462], fill=(250, 210, 110), outline=OUT, width=5)
     elif c.get("icon") == "walk":
         figure(sd, BW / 2, 500, 0.6, "walk", t * 3, "you")
     def ctext(txt, yy, f, col, a=255):
