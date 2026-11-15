@@ -345,6 +345,24 @@ def bg(kind):
         sk.sell([330, 1520, 830, 1700], fill=(210, 212, 222)); sk.d.text((540 * K, 1520 * K), "H", font=font(FONT_B, 150 * K), fill=(160, 70, 60))
         sk.srect([-10, 1420, 250, 1440], fill=(120, 110, 100), w=3)
         for x in range(0, 250, 50): sk.rect([x, 1360, x + 8, 1430], 0, fill=(110, 100, 94))
+    elif kind == "snow_walk":
+        img = grad((150, 140, 170), (236, 196, 180), BW * K, BH * K); sk = SK(img, K, 18)
+        sk.spoly([(-20, 1000), (220, 560), (420, 820), (640, 470), (880, 860), (1060, 640), (BW + 20, 900), (BW + 20, 1300), (-20, 1300)], fill=(170, 172, 192))
+        for (px, py) in ((220, 560), (640, 470), (1060, 640)):
+            sk.spoly([(px - 70, py + 110), (px, py), (px + 70, py + 110), (px + 30, py + 90), (px, py + 120), (px - 30, py + 90)], fill=(244, 244, 250), w=3)
+        sk.spoly([(-20, 1220), (360, 1120), (760, 1170), (BW + 20, 1100), (BW + 20, BH + 20), (-20, BH + 20)], fill=(232, 234, 242))
+        # laboratorio lejano
+        sk.srect([900, 1080, 1060, 1150], fill=(150, 152, 160), w=3); sk.srect([900, 1070, 1060, 1082], fill=(240, 242, 248), w=2)
+        for wx in range(912, 1050, 30): sk.rect([wx, 1100, wx + 16, 1114], 0, fill=(52, 54, 66))
+        sk.sline([(1040, 1070), (1040, 1030)], 3, STEEL)
+        # pinos
+        for (tx, ty, ts) in ((90, 1330, 1.0), (180, 1290, 0.8), (1150, 1300, 0.9), (60, 1900, 1.6)):
+            sk.srect([tx - 10 * ts, ty, tx + 10 * ts, ty + 60 * ts], fill=WOOD_D, w=3)
+            for k_ in range(3):
+                yy = ty - k_ * 70 * ts; ww = (90 - k_ * 22) * ts
+                sk.spoly([(tx - ww, yy + 20 * ts), (tx, yy - 90 * ts), (tx + ww, yy + 20 * ts)], fill=(70, 96, 80), w=3)
+                sk.spoly([(tx - ww * 0.5, yy - 40 * ts), (tx, yy - 90 * ts), (tx + ww * 0.5, yy - 40 * ts)], fill=(244, 244, 250), w=2)
+        for (x0, y0, x1) in ((260, 1500, 700), (700, 1760, 1180), (120, 2050, 520)): sk.sline([(x0, y0), ((x0 + x1) / 2, y0 - 16), (x1, y0)], 3, (200, 204, 220))
     else:
         raise ValueError(kind)
     out = img.resize((BW, BH), Image.LANCZOS)
@@ -479,6 +497,45 @@ def dynamic(kind, sd, t, T, dur, b):
             sd.srect([x0, y0, x1, y1], fill=WOOD); sd.srect([x0 + 14 * sc, y0 + 14 * sc, x1 - 14 * sc, y1 - 14 * sc], fill=None, w=3)
             cx, cy = (x0 + x1) / 2, (y0 + y1) / 2; q = 50 * sc; sd.srect([cx - q, cy - q, cx + q, cy + q], fill=CREAM, w=3)
             sd.rect([cx - 12 * sc, cy - 36 * sc, cx + 12 * sc, cy + 36 * sc], 0, fill=REDC); sd.rect([cx - 36 * sc, cy - 12 * sc, cx + 36 * sc, cy + 12 * sc], 0, fill=REDC)
+    if kind == "snow_walk":
+        if b.get("heli"):
+            hx, hy = b.get("heli_xy", (360, 1560)); C = (74, 86, 66)
+            sd.srect([hx - 150, hy + 70, hx + 170, hy + 86], fill=STEEL, w=3)
+            for lx in (-90, 90): sd.line([(hx + lx, hy + 40), (hx + lx, hy + 74)], fill=OUT, width=7)
+            sd.sell([hx - 180, hy - 90, hx + 180, hy + 60], fill=C); sd.srect([hx + 150, hy - 40, hx + 470, hy - 4], fill=C); sd.srect([hx + 440, hy - 110, hx + 476, hy - 4], fill=C)
+            sd.spoly([(hx - 160, hy - 50), (hx - 70, hy - 80), (hx - 70, hy + 10), (hx - 165, hy + 10)], fill=(120, 150, 160), w=3)
+            sd.srect([hx - 40, hy - 70, hx + 70, hy + 40], fill=(30, 30, 34), w=3)
+            sd.srect([hx - 10, hy - 140, hx + 10, hy - 90], fill=(56, 60, 50), w=3)
+            sp = max(0.0, 1 - t / max(0.1, dur) * b.get("rotor_stop", 0)); bl = 380 * (0.3 + 0.7 * abs(math.sin(T * (2 + 26 * sp))))
+            sd.line([(hx - bl, hy - 142), (hx + bl, hy - 142)], fill=(40, 40, 44, 220), width=10)
+            sd.sell([hx - 200, hy + 70, hx + 210, hy + 110], fill=(214, 218, 230), w=2)
+        if b.get("prints"):
+            n_ = 14; k0 = b.get("prints_reveal", 1.0)
+            for i in range(n_):
+                if i / n_ > ease(min(1, t / max(0.1, dur) / max(0.05, k0))): break
+                f_ = i / n_; px = lerp(300, 960, f_); py = lerp(2000, 1200, f_) + (14 if i % 2 else -14) * (1 - f_); r_ = lerp(26, 8, f_)
+                sd.ellipse([px - r_, py - r_ * 0.55, px + r_, py + r_ * 0.55], fill=(170, 176, 196))
+        if b.get("wind"):
+            rr = random.Random(31)
+            for i in range(18):
+                yy = rr.uniform(300, 2100); xx = ((rr.uniform(0, BW) - T * 1300) % (BW + 300)) - 150
+                sd.line([(xx, yy), (xx + 120, yy - 10)], fill=(255, 255, 255, 140), width=5)
+        rr = random.Random(23)
+        for i in range(110):
+            x = (rr.uniform(0, BW) + math.sin(T * 0.8 + i) * 30 - (T * 260 if b.get("wind") else 0)) % BW; y = (rr.uniform(0, BH) + T * rr.uniform(60, 140)) % BH; r_ = rr.uniform(4, 10)
+            sd.ellipse([x - r_, y - r_, x + r_, y + r_], fill=(255, 255, 255, 200))
+    if kind == "snow_lab":
+        if b.get("door_lit"):
+            k_ = ease(min(1, max(0, (t - b.get("door_t", 0)) / 0.6)))
+            if k_ > 0: sd.rect([520, 1330, 520 + 110 * k_, 1420], 0, fill=(250, 220, 150))
+        if b.get("zombies"):
+            r = random.Random(8); mv = b.get("zmove", 0)
+            for i in range(b["zombies"]):
+                x = r.uniform(120, 1120); y = r.uniform(1440, 1540)
+                if 470 < x < 680 and y < 1480: x += 260
+                s_ = r.uniform(0.3, 0.4); x_ = x + math.sin(T * 0.5 + i) * 4 * mv
+                figure(sd, x_, y, s_, "stand", (T + i) * (0.15 + mv), "zombie")
+                hx_ = x_ + 32 * s_; ht_ = y - 354 * s_; sd.ellipse([hx_ - 40 * s_, ht_ - 6 * s_, hx_ + 40 * s_, ht_ + 16 * s_], fill=(244, 244, 250, 230))
     if kind == "snow_lab":
         rr = random.Random(21)
         for i in range(90):
