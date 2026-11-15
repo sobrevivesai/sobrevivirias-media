@@ -2,7 +2,7 @@
 
 ## Datos fijos
 - Cuenta: Instagram @sobrevivirias.z (Metricool blogId 8008179, zona horaria America/Argentina/Buenos_Aires).
-- Serie actual: **PISO 33**. Última parte publicada o programada: **Parte 7**.
+- Serie actual: **PISO 33**. Última parte publicada o programada: **Parte 8**.
 - Publicación: **1 parte por día a las 16:00** (hora de Argentina), en Instagram (Reel) y YouTube (Short).
 
 ## Personajes (no cambiar su aspecto)
@@ -18,7 +18,8 @@
 4. Parte 4, LA ESCALERA: ganó ir juntos (61%). Día 7, 5:30: bajan 33 pisos. Un zombi pasa a centímetros en el piso 12. Cruzan la calle. 6:50: portón del hospital, los soldados revisan brazos, cuello y piernas. **Elección pendiente:** A) decir la verdad sobre la mordida / B) esconder la mordida bajo la campera.
 5. Parte 5, LA VERDAD: ganó decir la verdad (57%). Los soldados los frenan; Lucía muestra la mordida: 6 días, sin fiebre. "Si es verdad, vale más que todo este hospital". La llevan en el helicóptero a un laboratorio en el norte, pero tú no estás en la lista. Lucía no quiere irse sin ti. El ruido de las aspas atrae a la calle entera. Quedan 3 minutos para el despegue. Elección: A) dejar que Lucía se vaya sola / B) subir a escondidas al helicóptero.
 6. Parte 6, EL POLIZÓN: ganó subir a escondidas (68%). Mientras los soldados corren al portón (la horda lo empuja), subes detrás de Lucía a la terraza y te metes al helicóptero. Te escondes detrás de las cajas de medicinas. Suben Lucía y un soldado; despegan. Veinte minutos después el soldado revisa la carga y te descubre ("¡hay un polizón a bordo!"). Lucía se pone delante: si tú bajas, ella también. El piloto avisa: con tu peso el combustible no alcanza para llegar al norte. Elección: A) aterrizar a cargar combustible en zona infectada / B) tirar las cajas de medicinas.
-7. Parte 7, LA SEÑAL: ganó tirar las medicinas (66%). Lucía abre la puerta lateral; tiras las tres cajas al vacío (el soldado te ayuda con la última). Sin la carga, el combustible alcanza por poco. Dos horas después aparece el laboratorio en las montañas nevadas: ni una luz, la radio no responde. En el techo, una figura hace tres destellos con una linterna (señal de auxilio). El combustible se acaba: hay que bajar ya. **Elección pendiente:** A) aterrizar en el laboratorio / B) bajar lejos y llegar a pie.
+7. Parte 7, LA SEÑAL: ganó tirar las medicinas (66%). Lucía abre la puerta lateral; tiras las tres cajas al vacío (el soldado te ayuda con la última). Sin la carga, el combustible alcanza por poco. Dos horas después aparece el laboratorio en las montañas nevadas: ni una luz, la radio no responde. En el techo, una figura hace tres destellos con una linterna (señal de auxilio). El combustible se acaba: hay que bajar ya. Elección: A) aterrizar en el laboratorio / B) bajar lejos y llegar a pie.
+8. Parte 8, HUELLAS: ganó bajar lejos (56%). El helicóptero se posa en un valle a 1 km del laboratorio; el piloto se queda con la nave. Tú, Lucía y el soldado caminan por la nieve; Lucía tiembla (su campera no sirve para este frío). A mitad de camino: huellas frescas hacia el laboratorio. Desde la loma ven la reja y, en el patio nevado, zombis casi congelados; uno gira la cabeza. En el techo, otra vez tres destellos, y se abre una puerta abajo (luz cálida). El soldado: para llegar a la puerta hay que pasar entre ellos; rodear por la montaña es más seguro, pero con el frío no aguantan mucho. **Elección pendiente:** A) cruzar entre los zombis congelados / B) rodear por la montaña.
 
 ## Correcciones de coherencia (aplicar desde la Parte 6)
 - **Agua:** los 50 L quedaron en el departamento del piso 33. Fuera del edificio el contador de agua tiene que mostrar solo lo que llevan encima (por ejemplo 2 L en las mochilas), no 50 L.
@@ -33,7 +34,9 @@
 - El laboratorio del norte está a oscuras y sin radio; alguien en el techo pide auxilio con tres destellos (¿sobreviviente? ¿trampa? ¿relación con las linternas de la terraza de enfrente?). El soldado está molesto por perder las medicinas.
 - A bordo: un soldado (casco verde) y un piloto que no se ve; cajas de medicinas con cruz roja para el laboratorio.
 - Escenarios nuevos en engine/beanie.py: `rooftop` (terraza del hospital con helipuerto y helicóptero) y `heli_in` (cabina con ventanillas, banco y cajas; en `cast`, `"behind": true` dibuja al personaje detrás de las cajas). Ícono de ficha nuevo: `snow`. Desde la Parte 7: `heli_in` admite `boxes` (cajas que quedan), `toss` ([[caja, fracción]] para tirarlas), `door_open` y `door_t`; escenario `snow_lab` (laboratorio en montañas nevadas, con `heli_fly` y `flashes`/`flash_t`); ícono de ficha `sos`.
-- Fichas ya usadas: agua, comida, ruta, escalera, mordidas (OMS), frío en altura, señal de auxilio de a tres.
+- Desde la Parte 8: escenario `snow_walk` (valle nevado con pinos y el laboratorio chiquito al fondo; opciones `heli` + `rotor_stop` = helicóptero posado, `prints` + `prints_reveal` = huellas, `wind`); `snow_lab` admite `zombies` (zombis con nieve en la cabeza en el patio), `zmove` (0 quietos, 1 se mueven) y `door_lit` + `door_t` (puerta de abajo que se abre con luz). En escenas de nieve con personajes, subtítulo en `y: 1060`.
+- El piloto quedó con el helicóptero (sin combustible) en el valle. Huellas frescas hacia el laboratorio: alguien llegó a pie hace poco (¿quién hace las señales?). Lucía sufre el frío.
+- Fichas ya usadas: agua, comida, ruta, escalera, mordidas (OMS), frío en altura, señal de auxilio de a tres, hipotermia (35 °C).
 
 ## Cuando la historia termine
 Cuando PISO 33 se acerque a su fin (unas 12 a 16 partes en total), prepará un cierre fuerte en 1 o 2 partes y arrancá una serie nueva al día siguiente. La cuenta es genérica: cada serie tiene su propio nombre, portada y carpeta `historia/<serie>/`.
@@ -61,6 +64,7 @@ Reglas para cada serie nueva:
 | 4 | 11/11 16:00 (IG + YouTube) | 57% decir la verdad |
 | 5 | 12/11 16:00 (IG + YouTube) | 68% subir a escondidas |
 | 6 | 13/11 16:00 (IG + YouTube, Metricool id 426790343) | 66% tirar las medicinas |
-| 7 | 14/11 16:00 (IG + YouTube, Metricool id 427902136) | (pendiente) |
+| 7 | 14/11 16:00 (IG + YouTube, Metricool id 427902136) | 56% bajar lejos y llegar a pie |
+| 8 | 15/11 16:00 (IG + YouTube, Metricool id 428776911) | (pendiente) |
 
 Nota: las Partes 1 y 2 se subieron a YouTube el 11/11 por la mañana.
