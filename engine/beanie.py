@@ -90,7 +90,7 @@ def figure(sd, x, y, s=1.0, pose="stand", t=0.0, who="you", look=0.0, face=True,
         bc = BAG if who == "you" else (96, 70, 96)
         sd.spoly([(neck[0] - 66 * s, neck[1] + 16 * s), (neck[0] - 18 * s, neck[1] + 14 * s), (hip[0] - 18 * s, hip[1] - 14 * s), (hip[0] - 66 * s, hip[1] - 10 * s)], fill=bc, w=4 * s)
     # torso (campera)
-    tc = ZCLOTH if z else (LJACKET if who == "lucia" else (JACKET if who == "you" else (90, 96, 84)))
+    tc = ZCLOTH if z else (LJACKET if who == "lucia" else (JACKET if who == "you" else ((236, 234, 226) if who == "scientist" else (90, 96, 84))))
     tor = [shL, shR, hpR, hpL] if not z else [shL, shR, (hpR[0] + 6 * s, hpR[1]), (hip[0] + 6 * s, hip[1] + 14 * s), (hpL[0] + 4 * s, hpR[1] + 2 * s)]
     sd.spoly(tor, fill=tc, w=4.5 * s)
     # brazos
@@ -138,6 +138,9 @@ def figure(sd, x, y, s=1.0, pose="stand", t=0.0, who="you", look=0.0, face=True,
         fl = math.sin(t * 6) * 5 * s
         sd.poly([(hx - r + 3 * s, hy - 20 * s), (hx - r - 32 * s, hy - 30 * s + fl), (hx - r - 28 * s, hy - 12 * s + fl)], fill=BAND)
         sd.poly([(hx - r + 3 * s, hy - 14 * s), (hx - r - 24 * s, hy + 2 * s - fl), (hx - r - 12 * s, hy + 9 * s - fl)], fill=BAND)
+    if who == "scientist":
+        sd.chord([hx - r - 4 * s, hy - r - 6 * s, hx + r + 4 * s, hy + r * 0.2], 180, 360, fill=(196, 196, 200))
+        for sx in (-1, 1): sd.ellipse([hx + sx * (r + 2 * s) - 9 * s, hy - 14 * s, hx + sx * (r + 2 * s) + 9 * s, hy + 22 * s], fill=(196, 196, 200))
     if who == "soldier":
         sd.chord([hx - r - 6 * s, hy - r - 8 * s, hx + r + 6 * s, hy + r * 0.5], 180, 360, fill=(80, 92, 64))
     if face:
@@ -153,6 +156,10 @@ def figure(sd, x, y, s=1.0, pose="stand", t=0.0, who="you", look=0.0, face=True,
                 ex = hx + sx * 16 * s; ty = hy + 14 * s + ph * 30 * s
                 sd.ellipse([ex - 4 * s, ty - 6 * s, ex + 4 * s, ty + 6 * s], fill=(150, 196, 230, int(255 * (1 - ph))))
         if z: sd.line([(hx - 12 * s, hy + 24 * s), (hx + 12 * s, hy + 20 * s)], fill=ZEYE, width=4 * s)
+        if who == "scientist":
+            for sx in (-1, 1):
+                ex = hx + sx * 16 * s + look * 9 * s; sd.ellipse([ex - 13 * s, hy - 9 * s, ex + 13 * s, hy + 17 * s], outline=OUT, width=int(max(2, 3.5 * s)))
+            sd.line([(hx - 3 * s + look * 9 * s, hy + 4 * s), (hx + 3 * s + look * 9 * s, hy + 4 * s)], fill=OUT, width=int(max(2, 3 * s)))
     return hand
 
 # ================================================================ ESCENARIOS (estáticos)
@@ -363,6 +370,41 @@ def bg(kind):
                 sk.spoly([(tx - ww, yy + 20 * ts), (tx, yy - 90 * ts), (tx + ww, yy + 20 * ts)], fill=(70, 96, 80), w=3)
                 sk.spoly([(tx - ww * 0.5, yy - 40 * ts), (tx, yy - 90 * ts), (tx + ww * 0.5, yy - 40 * ts)], fill=(244, 244, 250), w=2)
         for (x0, y0, x1) in ((260, 1500, 700), (700, 1760, 1180), (120, 2050, 520)): sk.sline([(x0, y0), ((x0 + x1) / 2, y0 - 16), (x1, y0)], 3, (200, 204, 220))
+    elif kind == "lab_yard":
+        img = grad((150, 140, 170), (226, 196, 186), BW * K, BH * K); sk = SK(img, K, 24)
+        sk.spoly([(-20, 1050), (160, 720), (330, 900), (520, 640), (700, 980), (700, 1300), (-20, 1300)], fill=(170, 172, 192))
+        for (px, py) in ((160, 720), (520, 640)):
+            sk.spoly([(px - 70, py + 110), (px, py), (px + 70, py + 110), (px + 30, py + 90), (px, py + 120), (px - 30, py + 90)], fill=(244, 244, 250), w=3)
+        # reja al fondo
+        sk.srect([-10, 1180, 700, 1196], fill=(110, 100, 94), w=3)
+        for x in range(0, 700, 46): sk.rect([x, 1070, x + 8, 1300], 0, fill=(110, 100, 94))
+        # pared del laboratorio (cerca, a la derecha)
+        sk.srect([640, 420, BW + 20, 1520], fill=(150, 152, 160)); sk.srect([620, 380, BW + 20, 430], fill=(240, 242, 248))
+        for wy in (540, 860):
+            for wx in (720, 980): sk.srect([wx, wy, wx + 170, wy + 160], fill=(52, 54, 66), w=4)
+        sk.srect([840, 1140, 1080, 1520], fill=(70, 72, 82), w=5); sk.srect([820, 1110, 1100, 1146], fill=(120, 122, 132), w=3)
+        sk.sell([1040, 1320, 1060, 1340], fill=STEEL, w=2)
+        # suelo nevado
+        sk.spoly([(-20, 1290), (400, 1260), (700, 1300), (BW + 20, 1500), (BW + 20, BH + 20), (-20, BH + 20)], fill=(232, 234, 242))
+        for (x0, y0, x1) in ((80, 1560, 520), (520, 1820, 1000), (100, 2080, 640)): sk.sline([(x0, y0), ((x0 + x1) / 2, y0 - 16), (x1, y0)], 3, (200, 204, 220))
+    elif kind == "lab_in":
+        room(sk, (150, 160, 164), (96, 100, 106), 1700)
+        for x in range(0, BW, 200): sk.line([(x, 0), (x, 1690)], fill=(138, 148, 152), width=4)
+        sk.rect([0, 1080, BW, 1092], 0, fill=(120, 130, 136))
+        # puerta metálica (izquierda)
+        sk.srect([70, 760, 470, 1700], fill=(120, 126, 132), w=6); sk.srect([110, 800, 430, 1080], fill=(104, 110, 116), w=3)
+        sk.srect([380, 1180, 420, 1300], fill=STEEL, w=3); sk.srect([60, 730, 480, 764], fill=(90, 96, 102))
+        # mesada con equipos (derecha)
+        sk.srect([600, 1280, BW - 40, 1330], fill=(220, 222, 226)); sk.srect([620, 1330, BW - 60, 1700], fill=(170, 176, 182))
+        for dx_ in (660, 920): sk.srect([dx_, 1380, dx_ + 220, 1640], fill=(150, 156, 162), w=3)
+        sk.srect([700, 1060, 760, 1280], fill=(70, 72, 82), w=3); sk.sell([680, 1240, 800, 1290], fill=(70, 72, 82), w=3); sk.sline([(730, 1080), (800, 1140)], 8)
+        for i_, c_ in enumerate(((190, 64, 54), (100, 160, 200), (120, 170, 110))):
+            tx = 900 + i_ * 70; sk.srect([tx, 1150, tx + 34, 1280], fill=(236, 240, 244), w=3); sk.rect([tx + 4, 1220, tx + 30, 1276], 0, fill=c_)
+        sk.srect([880, 1270, 1120, 1286], fill=WOOD_D, w=3)
+        # cartel
+        sk.srect([570, 820, 1130, 950], fill=(236, 238, 240)); sk.d.text((604 * K, 852 * K), "LABORATORIO", font=font(FONT_B, 54 * K), fill=REDC)
+        # lámpara de emergencia
+        sk.srect([BW / 2 - 70, 150, BW / 2 + 70, 210], fill=REDC)
     else:
         raise ValueError(kind)
     out = img.resize((BW, BH), Image.LANCZOS)
@@ -376,6 +418,7 @@ def bg(kind):
     if kind == "heli_in": out = glow(out, BW // 2, 200, 700, (120, 30, 30), 0.8)
     if kind == "rooftop": out = glow(out, 590, 1330, 300, (60, 60, 40), 0.6)
     if kind == "bath": out = glow(out, BW // 2, 300, 600, (70, 70, 60), 0.5)
+    if kind == "lab_in": out = glow(out, BW // 2, 200, 700, (120, 30, 30), 0.7)
     # textura de papel
     n = np.random.default_rng(hash(kind) % 1000).normal(0, 5, (BH, BW, 1))
     out = Image.fromarray(np.clip(np.asarray(out, np.float32) + n, 0, 255).astype(np.uint8))
@@ -552,10 +595,35 @@ def dynamic(kind, sd, t, T, dur, b):
             ph = (t - b.get("flash_t", 0.6)) % 2.4
             if t > b.get("flash_t", 0.6) and ph < 1.5 and (ph % 0.5) < 0.28:
                 sd.ellipse([fx + 10, fy - 150, fx + 100, fy - 60], fill=(255, 250, 210, 130)); sd.ellipse([fx + 40, fy - 120, fx + 70, fy - 90], fill=(255, 255, 240))
+    if kind == "lab_yard":
+        if b.get("door_lit"):
+            k_ = ease(min(1, max(0, (t - b.get("door_t", 0)) / 0.6)))
+            if k_ > 0:
+                sd.rect([840, 1140, 840 + 240 * k_, 1520], 0, fill=(250, 220, 150)); sd.poly([(840, 1520), (840 + 240 * k_, 1520), (840 + 300 * k_, 1700), (760, 1700)], fill=(250, 220, 150, 90))
+                if b.get("door_man") and k_ > 0.6: figure(sd, 960, 1520, 0.95, "stand", T, "scientist", look=-1, bag=False)
+        if b.get("zombies"):
+            mv = b.get("zmove", 0); spots = b.get("zpos", [[180, 1500, 0.7], [470, 1430, 0.6], [760, 1640, 0.8], [330, 1820, 0.95], [1000, 1880, 1.0], [620, 2080, 1.05], [80, 2120, 1.1]])
+            for i, (x, y, s_) in enumerate(spots[: b["zombies"]]):
+                wake = mv if i < b.get("zwake", 99) else 0
+                x_ = x + math.sin(T * 0.5 + i) * 4 * wake + b.get("zstep", 0) * t / max(1, dur) * wake * (1 if x < 620 else -1)
+                figure(sd, x_, y, s_, "stand", (T + i) * (0.15 + wake), "zombie", look=b.get("zlook", 0) * wake)
+                hx_ = x_ + 32 * s_; ht_ = y - 354 * s_; sd.ellipse([hx_ - 40 * s_, ht_ - 6 * s_, hx_ + 40 * s_, ht_ + 16 * s_], fill=(244, 244, 250, 230))
+                sd.ellipse([x_ - 60 * s_, y - 8 * s_, x_ + 80 * s_, y + 12 * s_], fill=(244, 244, 250, 200))
+        rr = random.Random(25)
+        for i in range(90):
+            x = (rr.uniform(0, BW) + math.sin(T * 0.8 + i) * 30) % BW; y = (rr.uniform(0, BH) + T * rr.uniform(60, 140)) % BH; r_ = rr.uniform(4, 9)
+            sd.ellipse([x - r_, y - r_, x + r_, y + r_], fill=(255, 255, 255, 190))
+    if kind == "lab_in":
+        on = 0.5 + 0.5 * math.sin(T * 3)
+        sd.ellipse([BW / 2 - 50, 160, BW / 2 + 50, 200], fill=(255, 120, 100, int(120 + 120 * on)))
+        if b.get("dents"):
+            for i in range(3):
+                kt = b["dents"][i] if i < len(b["dents"]) else 99
+                if t > kt: dx_, dy_ = 180 + i * 90, 1200 + i * 110; sd.ellipse([dx_ - 30, dy_ - 22, dx_ + 30, dy_ + 22], fill=(96, 100, 108))
     for c in b.get("cast", []):
         if c.get("behind"): continue
         x = c["x"] + c.get("dx", 0) * t / max(1, dur)
-        hand = figure(sd, x, c["y"], c["s"], c.get("pose", "stand"), T + c.get("ph", 0), c.get("who", "you"), c.get("look", 0), c.get("face", True), c.get("bag"), c.get("tears", False))
+        hand = figure(sd, x, c["y"], c["s"], c.get("pose", "stand"), T + c.get("ph", 0), c.get("who", "you"), c.get("look", 0), c.get("face", True), c.get("bag"), c.get("tears", False), c.get("bitten", False))
         if c.get("pose") == "flash":
             fx, fy = hand[0] + 30 * c["s"], hand[1]; tx, ty = b.get("flash_to", (fx + 600, fy - 200)); jit = math.sin(T * 1.7) * 26
             ang = math.atan2(ty - fy, tx - fx); px, py = -math.sin(ang), math.cos(ang)
