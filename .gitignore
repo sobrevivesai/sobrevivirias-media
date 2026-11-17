@@ -1,3 +1,7 @@
 engine/cache/
 out/
 __pycache__/
+historia/*/parte*/frames/
+historia/*/parte*/ofr/
+historia/*/parte*/stills/
+historia/*/parte*/*.wav

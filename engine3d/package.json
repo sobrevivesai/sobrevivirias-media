@@ -1,0 +1,1 @@
+{ "name": "engine3d", "private": true, "type": "module", "dependencies": { "esbuild": "^0.24.0", "postprocessing": "^6.36.0", "three": "^0.170.0" } }
