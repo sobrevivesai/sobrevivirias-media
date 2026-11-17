@@ -31,6 +31,14 @@ Crear `historia/<serie>/parteN+1/` con:
 - Render completo en segundo plano (≈ 50 min, 810×1440 escalado a 1080×1920): `bash engine3d/make.sh historia/<serie>/parteN+1 src/ep/<serie>-pN+1.ts full`. Si se corta, volver a correrlo: retoma los cuadros que faltan.
 - Verificar: duración 50–65 s, y revisar 6 cuadros de `ofr/` (subtítulos legibles abajo, opciones al final).
 
+## Ahorro de uso (obligatorio)
+- **Reutilizar todo lo posible:** copiar la escena de la parte anterior y cambiar solo los planos, posiciones y textos. Mientras la historia siga en un lugar ya construido (`ext`, `lab`, `cor`, `cage`…), NO construir escenarios nuevos. Si hace falta uno, armarlo con piezas existentes (`room`, `bench`, `box`, `cyl`, texturas `ctex` ya hechas) y sumarlo a la misma escena para que lo reutilicen las partes siguientes.
+- Personajes: usar siempre `castdefs.ts` (no redibujar). Si aparece un personaje nuevo, agregarlo ahí una sola vez.
+- No releer archivos completos que ya leíste. Para editar, usar reemplazos puntuales en vez de reescribir el archivo entero.
+- Hoja de cuadros: **como máximo 2 rondas** (una para ver y otra después de corregir). No mirar cuadros sueltos uno por uno.
+- Render: lanzarlo en segundo plano y controlar con esperas largas (cada ~10 min), sin leer el log entero.
+- Verificación final: una sola hoja de 8–16 cuadros del video terminado.
+
 ## 6. Subir y programar
 - Copiar `historia/<serie>/parteN/out.mp4` a `videos/<serie>-parteN.mp4`, commit y push a `main`. Esperar al menos 3 minutos para que GitHub Pages lo publique. Si Metricool responde que la URL "is not publicly accessible", esperar 2 minutos más y reintentar (hasta 3 veces).
 - URL pública: `https://sobrevivesai.github.io/sobrevivirias-media/videos/<serie>-parteN.mp4`
