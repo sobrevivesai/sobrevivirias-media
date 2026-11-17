@@ -77,6 +77,6 @@ Reglas para cada serie nueva:
 | 7 | 14/11 16:00 (IG + YouTube, Metricool id 427902136) | 56% bajar lejos y llegar a pie |
 | 8 | 15/11 16:00 (IG + YouTube, Metricool id 428776911) | 54% cruzar entre los zombis |
 | 9 | 16/11 16:00 (IG + YouTube, Metricool id 429882523) | 63% revisar el laboratorio |
-| 10 | 17/11 16:00 (IG + YouTube, Metricool id 431269851) — formato nuevo 3D | (pendiente) |
+| 10 | 17/11 16:00 (IG + YouTube, Metricool id 431320037) — formato nuevo 3D | (pendiente) |
 
 Nota: las Partes 1 y 2 se subieron a YouTube el 11/11 por la mañana.

@@ -30,7 +30,7 @@ def wtimes(text, t0, t1):
     return out
 if __name__ == "__main__":
     lines = json.load(open("script.json")); cfg = json.load(open("voices.json")) if os.path.exists("voices.json") else {}
-    LS = float(os.environ.get("LS", "1.0")); PAUSE = {int(k): v for k, v in cfg.get("pausas", {}).items()}
+    LS = float(os.environ.get("LS", "0.92")); PAUSE = {int(k): v for k, v in cfg.get("pausas", {}).items()}
     T = 0.75; phr = []; out = []
     for i, t in enumerate(lines):
         other = str(i) in cfg.get("otra_voz", [])
