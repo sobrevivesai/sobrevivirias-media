@@ -3,7 +3,7 @@
 ## Datos fijos
 - Cuenta: Instagram @sobrevivirias.z (Metricool blogId 8008179, zona horaria America/Argentina/Buenos_Aires).
 - Serie actual: **PISO 33**. Última parte publicada o programada: **Parte 10**.
-- Publicación: **1 parte por día a las 16:00** (hora de Argentina), en Instagram (Reel) y YouTube (Short).
+- Publicación: **1 parte por día a las 12:00 (desde el 17/11; antes 16:00)** (hora de Argentina), en Instagram (Reel) y YouTube (Short).
 
 ## Personajes (no cambiar su aspecto)
 - **Tú (protagonista):** figura de palitos, cabeza blanca, ojos de punto, **bandana roja** con nudo, campera verde oliva, mochila verde. La narración siempre le habla a él en segunda persona ("tú").
@@ -77,6 +77,6 @@ Reglas para cada serie nueva:
 | 7 | 14/11 16:00 (IG + YouTube, Metricool id 427902136) | 56% bajar lejos y llegar a pie |
 | 8 | 15/11 16:00 (IG + YouTube, Metricool id 428776911) | 54% cruzar entre los zombis |
 | 9 | 16/11 16:00 (IG + YouTube, Metricool id 429882523) | 63% revisar el laboratorio |
-| 10 | 17/11 16:00 (IG + YouTube, Metricool id 431320037) — formato nuevo 3D | (pendiente) |
+| 10 | 17/11 12:00 (IG + YouTube, Metricool id 431352199) — formato nuevo 3D | (pendiente) |
 
 Nota: las Partes 1 y 2 se subieron a YouTube el 11/11 por la mañana.

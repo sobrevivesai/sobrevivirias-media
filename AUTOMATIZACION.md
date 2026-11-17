@@ -1,6 +1,6 @@
 # Procedimiento diario (lo ejecuta la tarea programada)
 
-Objetivo: cada día crear **1 parte nueva** de la serie en el **formato cartoon 3D** (desde la Parte 10), renderizarla, subirla a GitHub Pages y programarla en Instagram (Reel) y YouTube (Short) vía Metricool a las **16:00** (hora de Argentina). Sin intervención humana.
+Objetivo: cada día crear **1 parte nueva** de la serie en el **formato cartoon 3D** (desde la Parte 10), renderizarla, subirla a GitHub Pages y programarla en Instagram (Reel) y YouTube (Short) vía Metricool a las **12:00** (hora de Argentina). Sin intervención humana.
 
 Formato (aprobado por el dueño el 17/11): personajes cartoon 2D (tarjetas dibujadas con `toon33.ts`) dentro de escenarios 3D con contorno de tinta, texturas pintadas, desenfoque de cámara y cámaras que se deslizan. Voz **Piper** (gratis, local): narrador `es_MX-claude-high`, otros personajes `es_MX-ald-medium`. **Subtítulos abajo** (bloques de 1–3 palabras, palabra activa en amarillo). Portada 0,7 s, resultado de la votación arriba al inicio, opciones A/B al final. Música y efectos a la mitad del volumen de la voz.
 El formato viejo (`engine/beanie.py`) queda solo como respaldo si el motor 3D falla sin arreglo.
@@ -35,7 +35,7 @@ Crear `historia/<serie>/parteN+1/` con:
 - Copiar `historia/<serie>/parteN/out.mp4` a `videos/<serie>-parteN.mp4`, commit y push a `main`. Esperar al menos 3 minutos para que GitHub Pages lo publique. Si Metricool responde que la URL "is not publicly accessible", esperar 2 minutos más y reintentar (hasta 3 veces).
 - URL pública: `https://sobrevivesai.github.io/sobrevivirias-media/videos/<serie>-parteN.mp4`
 - Metricool `createScheduledPost`, blogId `8008179`:
-  - Parte N+1 hoy a las 16:00, timezone America/Argentina/Buenos_Aires. Si ya pasó la hora, programar 10 minutos después de ahora.
+  - Parte N+1 hoy a las 12:00, timezone America/Argentina/Buenos_Aires. Si ya pasó la hora, programar 10 minutos después de ahora.
   - `providers: [{"network":"instagram"}]`, `instagramData: {"type":"REEL","showReelOnFeed":true,"isAiGenerated":true}`, `videoCoverMilliseconds: 300`, `autoPublish: true`.
   - Texto: 1ª línea con PALABRAS CLAVE EN MAYÚSCULA + ` | PISO 33 · Parte N`; una línea de contexto; `👇 Comenta A o B: ... La mayoría decide la Parte N+1.`; máximo 5 hashtags.
 - **YouTube Shorts:** antes de programar, llamar a `getBrandSettings`. Si `networksData` incluye YouTube, agregar `{"network":"youtube"}` a `providers` en la misma publicación, con `youtubeData`: `{"title": "<título de hasta 100 caracteres con PALABRAS CLAVE EN MAYÚSCULA> | <SERIE> Parte N #shorts", "type": "short", "privacy": "public", "madeForKids": false, "isAiGeneratedContent": false, "category": "FILM_ANIMATION", "tags": ["zombies", "supervivencia", "historias interactivas", "tú decides", "<serie>"]}`. Si YouTube no está conectado, publicar solo en Instagram.
