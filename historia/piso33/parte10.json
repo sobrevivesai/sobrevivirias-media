@@ -1,0 +1,494 @@
+{
+ "parte": 10,
+ "voz": "em_alex",
+ "velocidad": 1.0,
+ "beats": [
+  {
+   "scene": "results",
+   "say": "El cincuenta y siete por ciento eligió revisar el laboratorio primero.",
+   "no_caps": true,
+   "A": [
+    "Dejar que le saque sangre",
+    43
+   ],
+   "B": [
+    "Revisar el laboratorio",
+    57
+   ],
+   "A_beat": {
+    "scene": "lab_in",
+    "cast": [
+     {
+      "who": "scientist",
+      "x": 420,
+      "y": 2030,
+      "s": 1.3,
+      "bag": false,
+      "look": 1
+     },
+     {
+      "who": "lucia",
+      "x": 780,
+      "y": 2030,
+      "s": 1.3,
+      "bag": true,
+      "pose": "hold",
+      "look": -1,
+      "bitten": true
+     }
+    ]
+   },
+   "A_view": [
+    0.5,
+    0.78,
+    1.3
+   ],
+   "B_beat": {
+    "scene": "lab_back",
+    "cell": 0
+   },
+   "B_view": [
+    0.5,
+    0.45,
+    1.2
+   ],
+   "min": 3.8
+  },
+  {
+   "scene": "lab_in",
+   "say": "Ibarra se queda en la mesada, nervioso. Ustedes tres van hacia el fondo del laboratorio.",
+   "cap": "Ibarra se queda en la mesada, nervioso. Ustedes tres van hacia el fondo del laboratorio.",
+   "zoom": [
+    1.0,
+    1.1
+   ],
+   "center": [
+    0.55,
+    0.72
+   ],
+   "cast": [
+    {
+     "who": "scientist",
+     "x": 1000,
+     "y": 2030,
+     "s": 1.15,
+     "bag": false,
+     "look": -1
+    },
+    {
+     "who": "you",
+     "x": 300,
+     "y": 2030,
+     "s": 1.15,
+     "pose": "walk",
+     "dx": 260,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 160,
+     "y": 2020,
+     "s": 1.1,
+     "bag": true,
+     "pose": "walk",
+     "dx": 260,
+     "look": 1
+    },
+    {
+     "who": "soldier",
+     "x": 470,
+     "y": 2030,
+     "s": 1.15,
+     "pose": "walk",
+     "dx": 260,
+     "look": 1
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "y": 1060
+  },
+  {
+   "scene": "lab_back",
+   "say": "Al fondo hay una sala fría. En la pizarra hay cuatro nombres: sujeto uno, dos, tres y cuatro.",
+   "cap": "Al fondo hay una sala fría. En la pizarra hay cuatro nombres: sujeto uno, dos, tres y cuatro.",
+   "cell": 0,
+   "sfx": "heart",
+   "zoom": [
+    1.35,
+    1.5
+   ],
+   "center": [
+    0.5,
+    0.25
+   ],
+   "y": 1400,
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   }
+  },
+  {
+   "scene": "lab_back",
+   "say": "Todos están tachados. Y al lado del último dice: sin fiebre. Como Lucía.",
+   "cap": "Todos están tachados. Y al lado del último dice: sin fiebre. Como Lucía.",
+   "cell": 0,
+   "sfx": "heart",
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "center": [
+    0.5,
+    0.5
+   ],
+   "pausa": 0.5,
+   "cast": [
+    {
+     "who": "lucia",
+     "x": 380,
+     "y": 2020,
+     "s": 1.1,
+     "bag": true,
+     "look": 1,
+     "pose": "hold",
+     "tears": true
+    },
+    {
+     "who": "you",
+     "x": 170,
+     "y": 2030,
+     "s": 1.15,
+     "look": 1
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "y": 1060
+  },
+  {
+   "scene": "card",
+   "say": "Un adulto tiene unos cinco litros de sangre. Una donación segura saca menos de medio litro.",
+   "cap": "Un adulto tiene unos cinco litros de sangre. Una donación segura saca menos de medio litro.",
+   "card": {
+    "icon": "drop",
+    "kicker": "SANGRE",
+    "title": "MEDIO LITRO",
+    "rows": [
+     [
+      "En el cuerpo",
+      "5 litros"
+     ],
+     [
+      "Una donación",
+      "450 ml"
+     ],
+     [
+      "Entre donaciones",
+      "8 semanas"
+     ]
+    ],
+    "big": "Donar es seguro",
+    "big_t": 3.4
+   },
+   "y": 1640
+  },
+  {
+   "scene": "lab_back",
+   "say": "Detrás de un vidrio, algo golpea. Son zombis... con bata blanca.",
+   "cap": "Detrás de un vidrio, algo golpea. Son zombis... con bata blanca.",
+   "cell": 3,
+   "cell_bang": 1,
+   "sfx": "hit",
+   "red": true,
+   "shake": 14,
+   "zoom": [
+    1.25,
+    1.4
+   ],
+   "center": [
+    0.74,
+    0.6
+   ],
+   "pausa": 0.4,
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "y": 1060
+  },
+  {
+   "scene": "lab_back",
+   "say": "Eran sus compañeros del laboratorio. Ibarra no les dijo nada de esto.",
+   "cap": "Eran sus compañeros del laboratorio. Ibarra no les dijo nada de esto.",
+   "cell": 3,
+   "cell_bang": 1,
+   "zoom": [
+    1.0,
+    1.08
+   ],
+   "center": [
+    0.55,
+    0.62
+   ],
+   "cast": [
+    {
+     "who": "soldier",
+     "x": 560,
+     "y": 2030,
+     "s": 1.15,
+     "look": 1,
+     "pose": "wall"
+    },
+    {
+     "who": "you",
+     "x": 330,
+     "y": 2030,
+     "s": 1.15,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 150,
+     "y": 2020,
+     "s": 1.1,
+     "bag": true,
+     "look": 1,
+     "tears": true
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "y": 1060
+  },
+  {
+   "scene": "lab_back",
+   "say": "De pronto, golpes en la puerta del fondo. Tres golpes. Pausa. Tres más.",
+   "cap": "De pronto, golpes en la puerta del fondo. Tres golpes. Pausa. Tres más.",
+   "cell": 3,
+   "knocks": [
+    1.9,
+    2.2,
+    2.5,
+    3.6,
+    3.9,
+    4.2
+   ],
+   "sfx": "heart",
+   "zoom": [
+    1.2,
+    1.3
+   ],
+   "center": [
+    0.28,
+    0.6
+   ],
+   "cast": [
+    {
+     "who": "you",
+     "x": 560,
+     "y": 2030,
+     "s": 1.15,
+     "look": -1
+    },
+    {
+     "who": "soldier",
+     "x": 800,
+     "y": 2030,
+     "s": 1.15,
+     "look": -1
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "y": 1060
+  },
+  {
+   "scene": "lab_back",
+   "say": "En la ventanita aparece una mujer con campera naranja. Las huellas frescas eran de ella.",
+   "cap": "En la ventanita aparece una mujer con campera naranja. Las huellas frescas eran de ella.",
+   "cell": 3,
+   "marta": true,
+   "marta_t": 0.6,
+   "zoom": [
+    1.5,
+    1.7
+   ],
+   "center": [
+    0.2,
+    0.53
+   ],
+   "pausa": 0.4,
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "y": 1500
+  },
+  {
+   "scene": "lab_back",
+   "say": "Les grita: ¡no dejen que les saque sangre! ¡Él no busca una cura!",
+   "cap": "Les grita: ¡no dejen que les saque sangre! ¡Él no busca una cura!",
+   "cell": 3,
+   "marta": true,
+   "marta_shout": true,
+   "marta_hand": true,
+   "red": true,
+   "shake": 12,
+   "sfx": "hit",
+   "zoom": [
+    1.35,
+    1.45
+   ],
+   "center": [
+    0.22,
+    0.56
+   ],
+   "cast": [
+    {
+     "who": "lucia",
+     "x": 560,
+     "y": 2020,
+     "s": 1.1,
+     "bag": true,
+     "look": -1,
+     "pose": "hold",
+     "tears": true
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "y": 1060
+  },
+  {
+   "scene": "lab_back",
+   "say": "Afuera se oyen gruñidos. Y desde el pasillo, Ibarra grita: ¡no abran esa puerta!",
+   "cap": "Afuera se oyen gruñidos. Y desde el pasillo, Ibarra grita: ¡no abran esa puerta!",
+   "cell": 3,
+   "marta": true,
+   "marta_hand": true,
+   "sfx": "groan,heart",
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "center": [
+    0.5,
+    0.62
+   ],
+   "pausa": 0.4,
+   "cast": [
+    {
+     "who": "you",
+     "x": 500,
+     "y": 2030,
+     "s": 1.15,
+     "look": 1
+    },
+    {
+     "who": "lucia",
+     "x": 300,
+     "y": 2020,
+     "s": 1.1,
+     "bag": true,
+     "look": 1,
+     "pose": "hold"
+    },
+    {
+     "who": "soldier",
+     "x": 700,
+     "y": 2030,
+     "s": 1.15,
+     "look": 1
+    },
+    {
+     "who": "scientist",
+     "x": 1060,
+     "y": 2030,
+     "s": 1.15,
+     "bag": false,
+     "pose": "point",
+     "look": -1
+    }
+   ],
+   "hud": {
+    "dia": 7,
+    "agua": 2,
+    "comida": 0
+   },
+   "y": 1060
+  },
+  {
+   "scene": "choice",
+   "say": "¿Le abres la puerta a la mujer... o la dejas afuera?",
+   "no_caps": true,
+   "sfx": "hit",
+   "A": "Abrirle la puerta",
+   "B": "Dejarla afuera",
+   "A_beat": {
+    "scene": "lab_back",
+    "cell": 3,
+    "marta": true,
+    "marta_hand": true
+   },
+   "A_view": [
+    0.22,
+    0.56,
+    1.5
+   ],
+   "B_beat": {
+    "scene": "lab_back",
+    "cell": 3,
+    "cast": [
+     {
+      "who": "scientist",
+      "x": 900,
+      "y": 2030,
+      "s": 1.3,
+      "bag": false,
+      "pose": "point",
+      "look": -1
+     }
+    ]
+   },
+   "B_view": [
+    0.65,
+    0.75,
+    1.3
+   ]
+  }
+ ],
+ "serie": "PISO 33",
+ "titulo": "LA SALA FRÍA",
+ "cover": {
+  "bg_beat": {
+   "scene": "lab_back",
+   "cell": 3,
+   "cell_bang": 1,
+   "marta": true
+  },
+  "center": [
+   0.5,
+   0.5
+  ],
+  "zoom": 1.1
+ }
+}

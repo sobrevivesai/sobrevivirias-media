@@ -66,7 +66,7 @@ def shade(img, col, a):
 
 # ================================================================ PERSONAJES
 def figure(sd, x, y, s=1.0, pose="stand", t=0.0, who="you", look=0.0, face=True, bag=None, tears=False, bitten=False):
-    z = who == "zombie"; br = math.sin(t * 2.2) * 2 * s
+    z = who in ("zombie", "zdoc"); br = math.sin(t * 2.2) * 2 * s
     lean = 22 * s if z else 0
     hip = (x, y - 150 * s); neck = (x + lean, y - 258 * s + br); head = (neck[0] + (10 * s if z else 0), neck[1] - 50 * s)
     if pose == "sit":
@@ -90,7 +90,7 @@ def figure(sd, x, y, s=1.0, pose="stand", t=0.0, who="you", look=0.0, face=True,
         bc = BAG if who == "you" else (96, 70, 96)
         sd.spoly([(neck[0] - 66 * s, neck[1] + 16 * s), (neck[0] - 18 * s, neck[1] + 14 * s), (hip[0] - 18 * s, hip[1] - 14 * s), (hip[0] - 66 * s, hip[1] - 10 * s)], fill=bc, w=4 * s)
     # torso (campera)
-    tc = ZCLOTH if z else (LJACKET if who == "lucia" else (JACKET if who == "you" else ((236, 234, 226) if who == "scientist" else (90, 96, 84))))
+    tc = ((214, 216, 206) if who == "zdoc" else ZCLOTH) if z else (LJACKET if who == "lucia" else ((214, 120, 52) if who == "marta" else (JACKET if who == "you" else ((236, 234, 226) if who == "scientist" else (90, 96, 84)))))
     tor = [shL, shR, hpR, hpL] if not z else [shL, shR, (hpR[0] + 6 * s, hpR[1]), (hip[0] + 6 * s, hip[1] + 14 * s), (hpL[0] + 4 * s, hpR[1] + 2 * s)]
     sd.spoly(tor, fill=tc, w=4.5 * s)
     # brazos
@@ -405,6 +405,26 @@ def bg(kind):
         sk.srect([570, 820, 1130, 950], fill=(236, 238, 240)); sk.d.text((604 * K, 852 * K), "LABORATORIO", font=font(FONT_B, 54 * K), fill=REDC)
         # lámpara de emergencia
         sk.srect([BW / 2 - 70, 150, BW / 2 + 70, 210], fill=REDC)
+    elif kind == "lab_back":
+        room(sk, (128, 140, 150), (84, 90, 98), 1700)
+        for x in range(0, BW, 200): sk.line([(x, 0), (x, 1690)], fill=(118, 130, 140), width=4)
+        # pizarra (arriba, al centro)
+        sk.srect([300, 280, 940, 780], fill=(244, 244, 238), w=6); sk.srect([290, 780, 950, 800], fill=(150, 150, 156), w=3)
+        hf = ImageFont.truetype(HAND, 60 * K)
+        for i_, txt in enumerate(("SUJETO 1", "SUJETO 2", "SUJETO 3", "SUJETO 4: SIN FIEBRE")):
+            yy = 320 + i_ * 110; sk.d.text((340 * K, yy * K), txt, font=hf, fill=(50, 60, 110))
+            ln = hf.getbbox(txt)[2] / K
+            sk.sline([(330, yy + 44), (360 + ln, yy + 38)], 7, REDC)
+        # puerta trasera (izquierda) con ventanita
+        sk.srect([50, 960, 450, 1700], fill=(120, 126, 132), w=6); sk.srect([40, 930, 460, 964], fill=(90, 96, 102))
+        sk.srect([140, 1060, 360, 1290], fill=(222, 226, 236), w=5)
+        sk.spoly([(140, 1220), (220, 1190), (300, 1215), (360, 1200), (360, 1290), (140, 1290)], fill=(244, 246, 252), line=False)
+        sk.srect([360, 1380, 400, 1500], fill=STEEL, w=3)
+        # celda de vidrio (derecha): interior oscuro
+        sk.srect([640, 900, 1210, 1700], fill=(70, 78, 88), w=6)
+        sk.rect([640, 1640, 1210, 1700], 0, fill=(60, 66, 74))
+        # lámpara de emergencia
+        sk.srect([BW / 2 - 70, 150, BW / 2 + 70, 210], fill=REDC)
     else:
         raise ValueError(kind)
     out = img.resize((BW, BH), Image.LANCZOS)
@@ -418,7 +438,7 @@ def bg(kind):
     if kind == "heli_in": out = glow(out, BW // 2, 200, 700, (120, 30, 30), 0.8)
     if kind == "rooftop": out = glow(out, 590, 1330, 300, (60, 60, 40), 0.6)
     if kind == "bath": out = glow(out, BW // 2, 300, 600, (70, 70, 60), 0.5)
-    if kind == "lab_in": out = glow(out, BW // 2, 200, 700, (120, 30, 30), 0.7)
+    if kind in ("lab_in", "lab_back"): out = glow(out, BW // 2, 200, 700, (120, 30, 30), 0.7)
     # textura de papel
     n = np.random.default_rng(hash(kind) % 1000).normal(0, 5, (BH, BW, 1))
     out = Image.fromarray(np.clip(np.asarray(out, np.float32) + n, 0, 255).astype(np.uint8))
@@ -620,6 +640,36 @@ def dynamic(kind, sd, t, T, dur, b):
             for i in range(3):
                 kt = b["dents"][i] if i < len(b["dents"]) else 99
                 if t > kt: dx_, dy_ = 180 + i * 90, 1200 + i * 110; sd.ellipse([dx_ - 30, dy_ - 22, dx_ + 30, dy_ + 22], fill=(96, 100, 108))
+    if kind == "lab_back":
+        on = 0.5 + 0.5 * math.sin(T * 3)
+        sd.ellipse([BW / 2 - 50, 160, BW / 2 + 50, 200], fill=(255, 120, 100, int(120 + 120 * on)))
+        # zombis con bata dentro de la celda
+        bang_ = b.get("cell_bang", 0)
+        sd.rect([646, 906, 1204, 1694], 0, fill=(170, 205, 225, 40))
+        for i, (zx, zs) in enumerate(((690, 0.95), (870, 1.0), (1040, 0.9))[: b.get("cell", 3)]):
+            hit = bang_ * max(0, math.sin(T * 7 + i * 2)) * 18
+            figure(sd, zx + hit, 1690, zs, "stand", (T + i) * (0.2 + bang_), "zdoc", look=-1 if bang_ else 0)
+        for gx in (700, 1000): sd.line([(gx, 960), (gx + 120, 1100)], fill=(255, 255, 255, 110), width=8)
+        if bang_:
+            for i, (px, py) in enumerate(((820, 1180), (1150, 1240))):
+                if t > 0.6 + i * 0.5: sd.ellipse([px - 26, py - 30, px + 26, py + 30], fill=(150, 160, 140, 140))
+        sd.rect([640, 900, 1210, 1700], 0, outline=(150, 156, 164), width=16)
+        for gx in (830, 1020): sd.line([(gx, 900), (gx, 1700)], fill=(150, 156, 164), width=12)
+        # mujer en la ventanita de la puerta
+        if b.get("marta"):
+            k_ = ease(min(1, max(0, (t - b.get("marta_t", 0)) / 0.5)))
+            if k_ > 0:
+                mx, my = 250, 1300 - 120 * k_; r_ = 52
+                sd.rect([mx - 80, my + 50, mx + 80, 1288], 0, fill=(214, 120, 52))
+                sd.ellipse([mx - r_ - 8, my - r_ - 8, mx + r_ + 8, my + r_ * 0.7], fill=(40, 34, 38))
+                sd.ellipse([mx - r_, my - r_, mx + r_, my + r_], fill=HEAD, outline=OUT, width=4)
+                sd.chord([mx - r_ - 4, my - r_ - 8, mx + r_ + 4, my + r_ * 0.1], 180, 360, fill=(40, 34, 38))
+                for sx in (-1, 1): sd.ellipse([mx + sx * 16 - 6, my - 2, mx + sx * 16 + 6, my + 10], fill=OUT)
+                if b.get("marta_shout") and int(T * 6) % 2 == 0: sd.ellipse([mx - 12, my + 20, mx + 12, my + 40], fill=OUT)
+                else: sd.line([(mx - 12, my + 28), (mx + 12, my + 28)], fill=OUT, width=4)
+                if b.get("marta_hand"):
+                    hy_ = 1150 + abs(math.sin(T * 8)) * 20; sd.ellipse([mx + 50, hy_, mx + 100, hy_ + 50], fill=HEAD, outline=OUT, width=4)
+            sd.rect([140, 1060, 360, 1290], 0, outline=(100, 106, 112), width=10)
     for c in b.get("cast", []):
         if c.get("behind"): continue
         x = c["x"] + c.get("dx", 0) * t / max(1, dur)
