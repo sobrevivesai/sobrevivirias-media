@@ -45,7 +45,7 @@ def frame(f, im):
         k = sst(f / 4.0); sz = int(118 + 22 * (1 - k)); words = EP["gancho_texto"].split(); lines = [" ".join(words[:2]), " ".join(words[2:])] if len(words) > 2 else [" ".join(words)]
         out = 1 - sst((t - PH[0]["t1"]) / 0.25)
         L = Image.new("RGBA", im.size, (0, 0, 0, 0)); dd = ImageDraw.Draw(L)
-        for j, ln in enumerate(lines): text(dd, (W / 2, 400 + j * (sz + 8)), ln, A(sz), YEL if j == len(lines) - 1 else (255, 255, 255), 12)
+        for j, ln in enumerate(lines): text(dd, (W / 2, 330 + j * (sz + 8)), ln, A(sz), YEL if j == len(lines) - 1 else (255, 255, 255), 12)
         ov = Image.alpha_composite(ov, fade(L, out)); d = ImageDraw.Draw(ov)
     v0, v1 = phrase_span(VI)
     a = sst((t - (v0 - 0.15)) / 0.3) * (1 - sst((t - (v1 + 0.6)) / 0.3)); g = sst((t - v0) / 0.8)

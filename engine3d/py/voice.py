@@ -32,7 +32,7 @@ def plan(text, i, n):
         st = -1.0 + (0.35 if j % 2 else -0.15)                # voz más grave + variación entre oraciones
         if ptxt.endswith("?"): st += 0.7
         if i == 0: st -= 0.5
-        pause = 0.42 if ptxt.endswith("…") else 0.16
+        pause = 0.3 if ptxt.endswith("…") else 0.1
         out.append((ptxt.replace("…", "."), ls, st, pause))
     return out
 def tts(text, m, ls_mul, extra="", i=0, n=1):
@@ -55,7 +55,7 @@ def wtimes(text, t0, t1):
     return out
 if __name__ == "__main__":
     lines = json.load(open("script.json")); cfg = json.load(open("voices.json")) if os.path.exists("voices.json") else {}
-    LS = float(os.environ.get("LS", "1.0")); PAUSE = {int(k): v for k, v in cfg.get("pausas", {}).items()}
+    LS = float(os.environ.get("LS", "0.86")); PAUSE = {int(k): v for k, v in cfg.get("pausas", {}).items()}
     T = float(cfg.get("inicio", 0.12)); phr = []; out = []  # sin portada: la voz arranca en el cuadro 4
     for i, t in enumerate(lines):
         other = str(i) in cfg.get("otra_voz", [])
