@@ -4,7 +4,7 @@
 set -e; D=$(cd "$(dirname "$0")" && pwd); P=$(cd "$1" && pwd); EP=$2; MODE=${3:-full}
 cd "$P"; mkdir -p work
 [ -f voice.wav ] && [ work/phrases.json -nt script.json ] || python3 -I "$D/py/voice.py"
-AN="$D/py/anchors.py"; [ -f anchors.py ] && AN="$P/anchors.py"; python3 -I "$AN" "$D/web/tim.js"
+AN="$D/py/anchors.py"; [ -f anchors.py ] && AN="$P/anchors.py"; python3 -I "$AN" "$D/web/tim.js" && python3 -I "$D/py/hook.py" "$D/web/tim.js"
 cd "$D" && npx esbuild "$EP" --bundle --outfile=web/ep.js --format=iife --log-level=error
 N=$(python3 -c "import json;print(json.load(open('$P/work/anchors.json'))['frames'])")
 if [ "$MODE" = stills ]; then
@@ -18,5 +18,5 @@ s=Image.new('RGB',(w*n,h*((len(fs)+n-1)//n)))
   echo "hoja: $P/stills/sheet.jpg"; exit 0; fi
 W=810 QS="ms=0&sm=1024&aa=smaa" node render.mjs 0 $((N-1)) "$P/frames"
 cd "$P" && AU="$D/py/audio.py"; [ -f "$P/audio.py" ] && AU="$P/audio.py"; python3 -I "$AU" && EP=episode.json python3 -I "$D/py/overlay.py" frames ofr
-ffmpeg -loglevel error -y -framerate 30 -i ofr/f%04d.jpg -i mix.wav -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -af loudnorm=I=-14:TP=-1 -shortest out.mp4
+ffmpeg -loglevel error -y -framerate 30 -i ofr/f%04d.jpg -i mix.wav -i work/hit.wav -filter_complex "[2:a]volume=0.6[h];[1:a][h]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1[a]" -map 0:v -map "[a]" -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -shortest out.mp4
 ffprobe -v error -show_entries format=duration -of csv=p=0 out.mp4

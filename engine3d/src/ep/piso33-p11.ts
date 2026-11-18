@@ -370,7 +370,9 @@ const idle = (t: number, seed: number) => ({ tilt: 1.6 * nz(t * 1.3, seed), head
 const blinkAt = (t: number, seed: number) => { const p = (t + hash(seed) * 3) % 3.1; return p < 0.12 ? 1 : 0; };
 
 (window as any).renderFrame = (f: number) => {
-  const t = f / FPS, sh = shotAt(t), st = t - S[sh], sl = S[sh + 1] - S[sh], u = st / sl;
+  // GANCHO: durante la frase 0 se muestra el clímax del capítulo (flash-forward a TIM.hookSrc, un poco en cámara lenta)
+  const tr = f / FPS, hook = TIM.hookSrc != null && tr < S[1];
+  const t = hook ? TIM.hookSrc + tr * (TIM.hookRate ?? 0.8) : tr, sh = shotAt(t), st = t - S[sh], sl = S[sh + 1] - S[sh], u = st / sl;
   for (const k in SETS) SETS[k].visible = false; cards.forEach((c) => c.hide()); slats.visible = false; duct.eyes.visible = false;
   let set = "duct", lt: Lt = LT.duct, dim = 1;
   let K: CamK = { p0: [0, 1.6, 4], p1: [0, 1.6, 4], l0: [0, 1.4, 0], l1: [0, 1.4, 0] };
@@ -445,7 +447,7 @@ const blinkAt = (t: number, seed: number) => { const p = (t + hash(seed) * 3) % 
   P.x += 0.02 * nz(t * 0.8, 1); P.y += 0.015 * nz(t * 0.7, 2);
   let roll = 0; if (sh === 12) roll = 0.04 * sst(u); if (sh === 15) roll = 0.03 * Math.sin(st * 0.7);
   cam.position.set(o.x + P.x, P.y, o.z + P.z); cam.up.set(0, 1, 0); cam.lookAt(o.x + L.x, L.y, o.z + L.z); cam.rotateZ(roll);
-  cam.fov = 40; cam.updateProjectionMatrix(); cam.updateMatrixWorld();
+  cam.fov = 40; if (hook) cam.fov *= 0.94 - 0.08 * sst(tr / S[1]); cam.updateProjectionMatrix(); cam.updateMatrixWorld();
   cards.forEach((c) => { if (c.mesh.visible) c.mesh.rotation.y = Math.atan2(cam.position.x - c.mesh.position.x, cam.position.z - c.mesh.position.z); });
   lens.focus = cam.position.distanceTo(V(o.x + L.x, L.y, o.z + L.z)); lens.cInf = (K.dof ?? 0) * (H / 1920) * 1.0; lp1.enabled = lp2.enabled = !!K.dof || Q.get("dofall") === "1";
   composer.render();

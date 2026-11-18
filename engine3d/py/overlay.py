@@ -31,26 +31,35 @@ def subs(d, t):
                 on = a <= t < b or (t >= b and w is c[-1][0] and False)
                 text(d, (x, SUBY + int(10 * (1 - pop))), s, SUBF, YEL if a <= t < b + 0.02 else (255, 255, 255), 10, "ls"); x += wd
             return
+def phrase_span(i): return PH[i]["t0"], PH[i]["t1"]
+VI = EP.get("frase_votos", 0)
 def frame(f, im):
     t = f / FPS; im = im.resize((W, H), Image.LANCZOS).convert("RGBA")
-    if f <= 22: im = Image.alpha_composite(im, Image.new("RGBA", im.size, (18, 14, 24, 125)))
     ov = Image.new("RGBA", im.size, (0, 0, 0, 0)); d = ImageDraw.Draw(ov)
-    if f <= 22:
-        text(d, (W / 2, 840), EP["serie"], A(255), (255, 246, 236), 15)
-        pill(d, (W / 2 - 225, 900, W / 2 + 225, 1035), (214, 58, 51)); text(d, (W / 2, 998), f"PARTE {EP['parte']}", A(93), (255, 255, 255), 0)
-        text(d, (W / 2, 1185), EP["titulo"], A(117), YEL, 10)
-    else:
-        S1 = AN["S"][1]
-        a = sst((t - 0.8) / 0.35) * (1 - sst((t - (S1 - 0.35)) / 0.3)); g = sst((t - 1.0) / 0.9)
-        if a > 0:
+    # insignia de serie (chica, arriba a la izquierda, todo el video)
+    badge = f"{EP['serie']} · PARTE {EP['parte']}"; bw = d.textlength(badge, font=B(30)) + 44
+    d.rounded_rectangle((40, 150, 40 + bw, 205), 18, fill=(214, 58, 51, 235), outline=INK, width=5)
+    text(d, (62, 191), badge, B(30), (255, 255, 255), 0, "ls")
+    # gancho: texto grande desde el cuadro 0 mientras dura la frase 0
+    if EP.get("gancho_texto") and t < PH[0]["t1"] + 0.25:
+        k = sst(f / 4.0); sz = int(118 + 22 * (1 - k)); words = EP["gancho_texto"].split(); lines = [" ".join(words[:2]), " ".join(words[2:])] if len(words) > 2 else [" ".join(words)]
+        out = 1 - sst((t - PH[0]["t1"]) / 0.25)
+        L = Image.new("RGBA", im.size, (0, 0, 0, 0)); dd = ImageDraw.Draw(L)
+        for j, ln in enumerate(lines): text(dd, (W / 2, 400 + j * (sz + 8)), ln, A(sz), YEL if j == len(lines) - 1 else (255, 255, 255), 12)
+        ov = Image.alpha_composite(ov, fade(L, out)); d = ImageDraw.Draw(ov)
+    v0, v1 = phrase_span(VI)
+    a = sst((t - (v0 - 0.15)) / 0.3) * (1 - sst((t - (v1 + 0.6)) / 0.3)); g = sst((t - v0) / 0.8)
+    if a > 0 and t > 0.3:
+        if True:
             L = Image.new("RGBA", im.size, (0, 0, 0, 0)); dd = ImageDraw.Draw(L)
             for i, (p, lab) in enumerate(EP["votos"]):
-                y = 220 + i * 180; col = (110, 200, 90) if i == 0 else (150, 150, 165)
+                y = 250 + i * 180; col = (110, 200, 90) if i == 0 else (150, 150, 165)
                 pill(dd, (60, y, W - 60, y + 144), (250, 247, 240)); bw = (W - 150) * p / 100 * g
                 dd.rounded_rectangle((75, y + 15, 75 + max(30, bw), y + 129), 30, fill=col)
                 text(dd, (99, y + 99), f"{round(p * g)}%", A(81), (255, 255, 255), 7, "ls")
                 text(dd, (290, y + 93), lab, B(38 if len(lab) < 24 else 34), (255, 255, 255), 6, "ls")
             ov = Image.alpha_composite(ov, fade(L, a)); d = ImageDraw.Draw(ov)
+    if True:
         subs(d, t)
         for i, (k, lab, col, ta) in enumerate([("A", EP["opciones"][0], (64, 140, 230), AN["optA"] - 0.2), ("B", EP["opciones"][1], (230, 90, 60), AN["optB"] - 0.2)]):
             al = sst((t - ta) / 0.3)
@@ -63,8 +72,10 @@ def frame(f, im):
             if l2: text(dd, (240, y + 140), l2, B(46), INK, 0, "ls")
             ov = Image.alpha_composite(ov, fade(L, al))
     im = Image.alpha_composite(im, ov)
-    fd = round(AN["door"] * FPS)
-    if fd <= f <= fd + 4: im = Image.blend(im, Image.new("RGBA", im.size, (255, 255, 255, 255)), 0.55 * (1 - (f - fd) / 5))
+    fl = [round(x * FPS) for x in AN.get("flash", [AN["door"]] if "door" in AN else [])]
+    if f <= 3: im = Image.blend(im, Image.new("RGBA", im.size, (255, 255, 255, 255)), 0.5 * (1 - f / 4))
+    for fd in fl:
+      if fd <= f <= fd + 4: im = Image.blend(im, Image.new("RGBA", im.size, (255, 255, 255, 255)), 0.55 * (1 - (f - fd) / 5))
     return im.convert("RGB")
 if __name__ == "__main__":
     src, dst = sys.argv[1], sys.argv[2]; os.makedirs(dst, exist_ok=True)
