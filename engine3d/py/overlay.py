@@ -37,9 +37,13 @@ def frame(f, im):
     t = f / FPS; im = im.resize((W, H), Image.LANCZOS).convert("RGBA")
     ov = Image.new("RGBA", im.size, (0, 0, 0, 0)); d = ImageDraw.Draw(ov)
     # insignia de serie (chica, arriba a la izquierda, todo el video)
-    badge = f"{EP['serie']} · PARTE {EP['parte']}"; bw = d.textlength(badge, font=B(30)) + 44
-    d.rounded_rectangle((40, 150, 40 + bw, 205), 18, fill=(214, 58, 51, 235), outline=INK, width=5)
-    text(d, (62, 191), badge, B(30), (255, 255, 255), 0, "ls")
+    ba = 1 - sst((t - PH[0]["t1"]) / 0.3)   # solo en la portada (mientras dura el gancho)
+    if ba > 0:
+        L = Image.new("RGBA", im.size, (0, 0, 0, 0)); dd = ImageDraw.Draw(L)
+        badge = f"{EP['serie']} · PARTE {EP['parte']}"; bw = dd.textlength(badge, font=B(34)) + 48
+        dd.rounded_rectangle((W / 2 - bw / 2, 150, W / 2 + bw / 2, 212), 20, fill=(214, 58, 51, 240), outline=INK, width=5)
+        text(dd, (W / 2, 194), badge, B(34), (255, 255, 255), 0, "ms")
+        ov = Image.alpha_composite(ov, fade(L, ba)); d = ImageDraw.Draw(ov)
     # gancho: texto grande desde el cuadro 0 mientras dura la frase 0
     if EP.get("gancho_texto") and t < PH[0]["t1"] + 0.25:
         k = sst(f / 4.0); sz = int(118 + 22 * (1 - k)); words = EP["gancho_texto"].split(); lines = [" ".join(words[:2]), " ".join(words[2:])] if len(words) > 2 else [" ".join(words)]

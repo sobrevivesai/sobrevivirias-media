@@ -3,7 +3,7 @@ import json, numpy as np, subprocess, tempfile, os, re, wave, sys, soundfile as 
 sys.path.insert(0, "/usr/local/lib/python3.13/site-packages")
 from piper import PiperVoice, SynthesisConfig
 VD = os.environ.get("PIPER_DIR", "/home/claude/piper")
-NARR = os.environ.get("NARR", "es_MX-claude-high"); OTHER = os.environ.get("OTHER", "es_MX-ald-medium")
+NARR = os.environ.get("NARR", "es_MX-ald-medium"); OTHER = os.environ.get("OTHER", "es_MX-claude-high")
 _V = {}
 def voice(m):
     if m not in _V: _V[m] = PiperVoice.load(f"{VD}/vits-piper-{m}/{m}.onnx")
@@ -13,6 +13,8 @@ SR = 48000
 FILT = ("highpass=f=70,equalizer=f=140:t=q:w=0.9:g=2.5,equalizer=f=420:t=q:w=1.2:g=-2.5,equalizer=f=3000:t=q:w=1.3:g=2.5,"
         "deesser=i=0.35,acompressor=threshold=-20dB:ratio=2.2:attack=6:release=90:makeup=2,aecho=0.85:0.6:28|47:0.07|0.04,lowpass=f=11500")
 SPK = ",highpass=f=380,lowpass=f=3300,acrusher=bits=10:mix=0.2"
+PITCH = float(os.environ.get("PITCH", "-2.5"))  # semitonos (más negativo = más grave)
+FORMANT = os.environ.get("FORMANT", "shifted")
 ACCION = ("corre", "salta", "golpe", "grita", "rápido", "ya", "¡")
 def plan(text, i, n):
     """Divide la frase en trozos (en '...' y entre oraciones) y les da velocidad, tono y pausa distintos para que no suene plano."""
@@ -29,7 +31,7 @@ def plan(text, i, n):
         if any(k in low for k in ACCION): ls = 0.84           # acción = más rápido
         if i == 0: ls = 0.98                                  # gancho: claro y con peso
         if i == n - 1: ls = 1.0                               # pregunta final
-        st = -1.0 + (0.35 if j % 2 else -0.15)                # voz más grave + variación entre oraciones
+        st = PITCH + (0.35 if j % 2 else -0.15)                # voz más grave + variación entre oraciones
         if ptxt.endswith("?"): st += 0.7
         if i == 0: st -= 0.5
         pause = 0.3 if ptxt.endswith("…") else 0.1
@@ -41,7 +43,7 @@ def tts(text, m, ls_mul, extra="", i=0, n=1):
         p = tempfile.mktemp(suffix=".wav")
         with wave.open(p, "wb") as w: voice(m).synthesize_wav(ptxt, w, syn_config=SynthesisConfig(length_scale=ls * ls_mul, noise_scale=0.72, noise_w_scale=0.95))
         o = tempfile.mktemp(suffix=".f32")
-        pf = f"rubberband=pitch={2 ** (st / 12):.4f}:formant=preserved,"
+        pf = f"rubberband=pitch={2 ** (st / 12):.4f}:formant={FORMANT},"
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", p, "-af", pf + FILT + extra, "-f", "f32le", "-ar", str(SR), "-ac", "1", o], check=True)
         a = np.fromfile(o, np.float32); os.remove(p); os.remove(o)
         env = np.abs(a); idx = np.where(env > 0.02 * env.max())[0]; a = a[max(0, idx[0] - 600): idx[-1] + 2400]

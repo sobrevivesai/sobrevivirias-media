@@ -1,10 +1,11 @@
 # Gancho: agrega a anchors.json / tim.js el "flash-forward" del plano 0 y genera el golpe sonoro del cuadro 0.
-# episode.json: "gancho_de": índice de la frase cuyo momento se muestra en el gancho (el clímax del capítulo),
+# episode.json: "gancho_ancla": nombre de un ancla de anchors.py (recomendado, p. ej. el instante del impacto); "gancho_de": índice de la frase cuyo momento se muestra en el gancho (el clímax del capítulo),
 #               "gancho_desfase": segundos dentro de esa frase (opcional), "gancho_texto": 2-4 palabras en MAYÚSCULAS.
 import json, sys, numpy as np, soundfile as sf
 A = json.load(open("work/anchors.json")); E = json.load(open("episode.json")); P = json.load(open("work/phrases.json"))["phrases"]
 if "gancho_de" in E:
-    A["hookSrc"] = round(P[E["gancho_de"]]["t0"] + E.get("gancho_desfase", 0.3), 3); A["hookRate"] = E.get("gancho_velocidad", 0.8)
+    base = A[E["gancho_ancla"]] if E.get("gancho_ancla") in A else P[E["gancho_de"]]["t0"]   # ancla = momento exacto (p. ej. "fall")
+    A["hookSrc"] = round(base + E.get("gancho_desfase", 0.3), 3); A["hookRate"] = E.get("gancho_velocidad", 0.8)
 json.dump(A, open("work/anchors.json", "w"), indent=1)
 open(sys.argv[1], "w").write("window.TIM=" + json.dumps(A) + ";")
 SR = 48000; n = int(1.6 * SR); t = np.arange(n) / SR; rng = np.random.default_rng(7)

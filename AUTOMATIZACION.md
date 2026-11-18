@@ -22,7 +22,7 @@ Crear `historia/<serie>/parteN+1/` con:
   - Frases 3…: la historia, escalando hasta el momento del gancho (que tiene que aparecer de verdad, mismo plano) y un giro más.
   - **Última frase = la pregunta con las 2 opciones.**
   Segunda persona con "tú", español neutro, frases cortas, verbos de acción. Prohibido arrancar lento.
-- `episode.json`: `{"serie","parte","titulo","votos":[[57,"OPCIÓN GANADORA"],[43,"OTRA"]],"opciones":["OPCIÓN A","OPCIÓN B"],"frase_votos":2,"gancho_de":<índice de la frase del clímax>,"gancho_desfase":0.3,"gancho_texto":"2-4 PALABRAS EN MAYÚSCULAS"}`. `gancho_texto` es el texto grande que se ve desde el cuadro 0 (ej. "LA PUERTA SE CERRÓ", "ALGO RESPIRA"). Las palabras deben coincidir con el gancho hablado o reforzarlo.
+- `episode.json`: `{"serie","parte","titulo","votos":[[57,"OPCIÓN GANADORA"],[43,"OTRA"]],"opciones":["OPCIÓN A","OPCIÓN B"],"frase_votos":2,"gancho_de":<índice de la frase del clímax>,"gancho_ancla":"<ancla del instante exacto del impacto>","gancho_desfase":0.3,"gancho_texto":"2-4 PALABRAS EN MAYÚSCULAS"}`. `gancho_texto` es el texto grande que se ve desde el cuadro 0 (ej. "LA PUERTA SE CERRÓ", "ALGO RESPIRA"). Las palabras deben coincidir con el gancho hablado o reforzarlo.
 - `voices.json`: `otra_voz` y `parlante` (índices de frases dichas por otro personaje / por un parlante o radio), `pausas` extra por frase. No hay portada: la voz arranca a los 0,12 s.
 - **Coherencia total:** todo lo que dice la voz se ve en el plano de esa frase. Mantener el aspecto de los personajes (`engine3d/src/castdefs.ts`). Nada de lo que un personaje no podría saber.
 
@@ -36,6 +36,8 @@ Crear `historia/<serie>/parteN+1/` con:
 ## 5. Control de calidad y render
 - Hoja de cuadros: `bash engine3d/make.sh historia/<serie>/parteN+1 src/ep/<serie>-pN+1.ts stills` (~30 s). Mirar `stills/sheet.jpg` y corregir encuadres, personajes cortados, incoherencias. Repetir hasta que esté bien.
 - Render completo en segundo plano (≈ 50 min, 810×1440 escalado a 1080×1920): `bash engine3d/make.sh historia/<serie>/parteN+1 src/ep/<serie>-pN+1.ts full`. Si se corta, volver a correrlo: retoma los cuadros que faltan.
+- El cuadro 0 tiene que mostrar el impacto ya ocurriendo (no el momento previo): usar `gancho_ancla` con el ancla del impacto y `gancho_desfase` ~0,3.
+- La insignia "SERIE · PARTE N" solo aparece en la portada (mientras suena el gancho).
 - En la hoja de cuadros revisar SIEMPRE el cuadro 0: tiene que ser la imagen más fuerte del video, con el texto del gancho legible.
 - Verificar: duración 35–45 s, y revisar 6 cuadros de `ofr/` (subtítulos legibles abajo, opciones al final).
 
