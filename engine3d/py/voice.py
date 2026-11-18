@@ -3,7 +3,7 @@ import json, numpy as np, subprocess, tempfile, os, re, wave, sys, soundfile as 
 sys.path.insert(0, "/usr/local/lib/python3.13/site-packages")
 from piper import PiperVoice, SynthesisConfig
 VD = os.environ.get("PIPER_DIR", "/home/claude/piper")
-NARR = os.environ.get("NARR", "es_MX-ald-medium"); OTHER = os.environ.get("OTHER", "es_MX-claude-high")
+NARR = os.environ.get("NARR", "es_MX-claude-high"); OTHER = os.environ.get("OTHER", "es_MX-ald-medium")
 _V = {}
 def voice(m):
     if m not in _V: _V[m] = PiperVoice.load(f"{VD}/vits-piper-{m}/{m}.onnx")
@@ -13,8 +13,8 @@ SR = 48000
 FILT = ("highpass=f=70,equalizer=f=140:t=q:w=0.9:g=2.5,equalizer=f=420:t=q:w=1.2:g=-2.5,equalizer=f=3000:t=q:w=1.3:g=2.5,"
         "deesser=i=0.35,acompressor=threshold=-20dB:ratio=2.2:attack=6:release=90:makeup=2,aecho=0.85:0.6:28|47:0.07|0.04,lowpass=f=11500")
 SPK = ",highpass=f=380,lowpass=f=3300,acrusher=bits=10:mix=0.2"
-PITCH = float(os.environ.get("PITCH", "-2.5"))  # semitonos (más negativo = más grave)
-FORMANT = os.environ.get("FORMANT", "shifted")
+PITCH = float(os.environ.get("PITCH", "-1.0"))  # semitonos (más negativo = más grave)
+FORMANT = os.environ.get("FORMANT", "preserved")
 ACCION = ("corre", "salta", "golpe", "grita", "rápido", "ya", "¡")
 def plan(text, i, n):
     """Divide la frase en trozos (en '...' y entre oraciones) y les da velocidad, tono y pausa distintos para que no suene plano."""
