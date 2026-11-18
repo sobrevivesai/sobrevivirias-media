@@ -2,7 +2,7 @@
 
 ## Datos fijos
 - Cuenta: Instagram @sobrevivirias.z (Metricool blogId 8008179, zona horaria America/Argentina/Buenos_Aires).
-- Serie actual: **PISO 33**. Última parte publicada o programada: **Parte 10**.
+- Serie actual: **PISO 33**. Última parte publicada o programada: **Parte 11**.
 - Publicación: **1 parte por día a las 12:00 (desde el 17/11; antes 16:00)** (hora de Argentina), en Instagram (Reel) y YouTube (Short).
 
 ## Personajes (no cambiar su aspecto)
@@ -23,6 +23,7 @@
 8. Parte 8, HUELLAS: ganó bajar lejos (56%). El helicóptero se posa en un valle a 1 km del laboratorio; el piloto se queda con la nave. Tú, Lucía y el soldado caminan por la nieve; Lucía tiembla (su campera no sirve para este frío). A mitad de camino: huellas frescas hacia el laboratorio. Desde la loma ven la reja y, en el patio nevado, zombis casi congelados; uno gira la cabeza. En el techo, otra vez tres destellos, y se abre una puerta abajo (luz cálida). El soldado: para llegar a la puerta hay que pasar entre ellos; rodear por la montaña es más seguro, pero con el frío no aguantan mucho. **Elección pendiente:** A) cruzar entre los zombis congelados / B) rodear por la montaña.
 9. Parte 9, PASOS DE HIELO: ganó cruzar (54%). Pasan la reja y caminan despacio entre los zombis cubiertos de escarcha. Lucía resbala en el hielo y cae; el golpe despierta a tres zombis que giran la cabeza y avanzan. El soldado levanta a Lucía y corren; la puerta se abre y aparece el de la linterna: un hombre de bata blanca que les grita que entren. Adentro cierra con llave; los golpes siguen del otro lado. Es el doctor Ibarra, el último del laboratorio, quien hacía las señales. Ve la mordida de Lucía (seis días, sin fiebre) y quiere sacarle sangre ya; el soldado lo frena: algo no le cierra. A) dejar que le saque sangre / B) revisar el laboratorio primero.
 10. Parte 10, EL LABORATORIO (formato nuevo 3D): ganó revisar el laboratorio (63%). Lucía se queda sentada con Ibarra (él la mira con una jeringa en la mano). Tú y el soldado recorren el pasillo: luces que parpadean, todas las puertas con cinta roja. Última sala: jaulas vacías con los barrotes doblados hacia afuera (algo escapó de adentro). Pizarra: once nombres tachados (Ramírez, Sosa, Pereyra, Vidal, Acosta, Méndez, Farías, Luna, Rojas, Cabral, Quiroga) y abajo, con tinta roja fresca, "12. LUCÍA — SUJETO INMUNE". Cajón del escritorio: jeringas, sedantes y una nota "Los acompañantes NO son necesarios — Dr. I." (los acompañantes son tú y el soldado). La puerta de la sala se cierra sola (encierro); se enciende una alarma roja. Por el parlante, Ibarra: "Lo siento. La cura vale más que ustedes". En el laboratorio, Lucía está sedada en la silla. En la sala hay una rejilla de ventilación en el techo y, abajo, el generador amarillo con su cable. **Elección pendiente:** A) escapar por la ventilación / B) cortar la luz de todo el laboratorio (el generador).
+11. Parte 11, EL CONDUCTO (3D): ganó escapar por la ventilación (57%). El soldado te hace pie; empujas la rejilla del techo y entran al conducto, agachados y sin luz. Por una rendija ves el laboratorio: Ibarra acomoda una camilla con correas y Lucía sigue dormida en la banqueta. Algo raspa el metal detrás de ustedes; el soldado enciende la linterna y al fondo brillan dos ojos amarillos: lo que rompió las jaulas nunca se fue y se acerca respirando. Delante el conducto se divide: a la izquierda, la rejilla sobre Lucía; de frente, un cartel verde de SALIDA. **Elección pendiente:** A) bajar por Lucía / B) escapar por la salida.
 
 ## Correcciones de coherencia (aplicar desde la Parte 6)
 - **Agua:** los 50 L quedaron en el departamento del piso 33. Fuera del edificio el contador de agua tiene que mostrar solo lo que llevan encima (por ejemplo 2 L en las mochilas), no 50 L.
@@ -45,8 +46,10 @@
 - Hilos nuevos (Parte 10): ¿qué pasó con los sujetos 1 a 11 y qué rompió las jaulas desde adentro (¿sigue suelto en el laboratorio?)? Ibarra quiere solo la sangre de Lucía; tú y el soldado sobran. Lucía sedada con él. ¿De quién eran las huellas frescas? Zombis del patio golpeando la puerta. El piloto sigue en el valle.
 - Fichas ya usadas: agua, comida, ruta, escalera, mordidas (OMS), frío en altura, señal de auxilio de a tres, hipotermia (35 °C), caminar sobre hielo como pingüino, sangre (5 L en el cuerpo, donación 450 ml, 8 semanas entre donaciones).
 
+- Desde la Parte 11 (escena `src/ep/piso33-p11.ts`, con `anchors.py` y `audio.py` propios en la carpeta de la parte): escenario `duct` (conducto metálico, ojos amarillos, rejilla iluminada a la izquierda, cartel SALIDA al fondo), camilla con correas en `lab`, rejilla de `cage` que se abre. Ibarra aún no sabe que escaparon (¿lo oyó?). La criatura de las jaulas (ojos amarillos) los sigue por el conducto.
+
 ## Plan de cierre
-Vamos por la Parte 10 de unas 12–14. Parte 11: escapar de la sala de jaulas (según la votación) y descubrir qué escapó de las jaulas; Parte 12: rescatar a Lucía de Ibarra y la verdad de su "cura"; Parte 13 (o 14): cierre fuerte (escape del laboratorio con Lucía, vuelta al helicóptero/piloto, resolver las huellas). Al día siguiente del final, arrancar serie nueva.
+Vamos por la Parte 11 de unas 12–14. Parte 12: resolver la elección (Lucía o salida) y qué es la criatura; rescatar a Lucía de Ibarra y la verdad de su "cura"; Parte 13/14: rescatar a Lucía de Ibarra y la verdad de su "cura"; Parte 13 (o 14): cierre fuerte (escape del laboratorio con Lucía, vuelta al helicóptero/piloto, resolver las huellas). Al día siguiente del final, arrancar serie nueva.
 
 ## Cuando la historia termine
 Cuando PISO 33 se acerque a su fin (unas 12 a 16 partes en total), prepará un cierre fuerte en 1 o 2 partes y arrancá una serie nueva al día siguiente. La cuenta es genérica: cada serie tiene su propio nombre, portada y carpeta `historia/<serie>/`.
@@ -77,6 +80,7 @@ Reglas para cada serie nueva:
 | 7 | 14/11 16:00 (IG + YouTube, Metricool id 427902136) | 56% bajar lejos y llegar a pie |
 | 8 | 15/11 16:00 (IG + YouTube, Metricool id 428776911) | 54% cruzar entre los zombis |
 | 9 | 16/11 16:00 (IG + YouTube, Metricool id 429882523) | 63% revisar el laboratorio |
-| 10 | 17/11 12:00 (IG + YouTube, Metricool id 431352199) — formato nuevo 3D | (pendiente) |
+| 10 | 17/11 12:00 (IG + YouTube, Metricool id 431352199) — formato nuevo 3D | 57% escapar por la ventilación |
+| 11 | 18/11 12:00 (IG + YouTube, Metricool id 432703960) — 3D | (pendiente) |
 
 Nota: las Partes 1 y 2 se subieron a YouTube el 11/11 por la mañana.
