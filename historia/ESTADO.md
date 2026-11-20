@@ -2,7 +2,7 @@
 
 ## Datos fijos
 - Cuenta: Instagram @sobrevivirias.z (Metricool blogId 8008179, zona horaria America/Argentina/Buenos_Aires).
-- Serie actual: **PISO 33**. Última parte publicada o programada: **Parte 12**.
+- Serie actual: **PISO 33**. Última parte publicada o programada: **Parte 13**.
 - Publicación: **1 parte por día a las 12:00 (desde el 17/11; antes 16:00)** (hora de Argentina), en Instagram (Reel) y YouTube (Short).
 
 ## Personajes (no cambiar su aspecto)
@@ -25,6 +25,8 @@
 10. Parte 10, EL LABORATORIO (formato nuevo 3D): ganó revisar el laboratorio (63%). Lucía se queda sentada con Ibarra (él la mira con una jeringa en la mano). Tú y el soldado recorren el pasillo: luces que parpadean, todas las puertas con cinta roja. Última sala: jaulas vacías con los barrotes doblados hacia afuera (algo escapó de adentro). Pizarra: once nombres tachados (Ramírez, Sosa, Pereyra, Vidal, Acosta, Méndez, Farías, Luna, Rojas, Cabral, Quiroga) y abajo, con tinta roja fresca, "12. LUCÍA — SUJETO INMUNE". Cajón del escritorio: jeringas, sedantes y una nota "Los acompañantes NO son necesarios — Dr. I." (los acompañantes son tú y el soldado). La puerta de la sala se cierra sola (encierro); se enciende una alarma roja. Por el parlante, Ibarra: "Lo siento. La cura vale más que ustedes". En el laboratorio, Lucía está sedada en la silla. En la sala hay una rejilla de ventilación en el techo y, abajo, el generador amarillo con su cable. **Elección pendiente:** A) escapar por la ventilación / B) cortar la luz de todo el laboratorio (el generador).
 11. Parte 11, EL CONDUCTO (3D): ganó escapar por la ventilación (57%). El soldado te hace pie; empujas la rejilla del techo y entran al conducto, agachados y sin luz. Por una rendija ves el laboratorio: Ibarra acomoda una camilla con correas y Lucía sigue dormida en la banqueta. Algo raspa el metal detrás de ustedes; el soldado enciende la linterna y al fondo brillan dos ojos amarillos: lo que rompió las jaulas nunca se fue y se acerca respirando. Delante el conducto se divide: a la izquierda, la rejilla sobre Lucía; de frente, un cartel verde de SALIDA. **Elección pendiente:** A) bajar por Lucía / B) escapar por la salida.
 12. Parte 12, SUJETO SIETE (3D, primera con GANCHO): ganó bajar por Lucía (56%). Pateas la rejilla y caes en el laboratorio; detrás cae el soldado. Lucía sigue dormida en la banqueta; Ibarra prepara la camilla, se da vuelta con una jeringa y el soldado le apunta. El techo cruje y cae la criatura del conducto: enorme, pálida, con un 7 rojo en el pecho (SUJETO SIETE, uno de los once). Ruge, pero Ibarra levanta la mano y se queda quieta: le obedece. Ibarra: "Me obedece a mí. Siete... tráeme a la chica". Se enciende la luz roja. **Elección pendiente:** A) cargar a Lucía y correr / B) tomar a Ibarra de rehén.
+
+13. Parte 13, EL ESCLAVO (3D): ganó tomar a Ibarra de rehén (53%). Saltas sobre Ibarra y le pones su propia jeringa en el cuello ("¡Atrás, o se la clavo!"). Ibarra: "No te atreverás. Siete, ¡mátalos!". Siete avanza, el soldado dispara y la bala rebota en su pecho, pero Siete no te mira a ti: mira a Ibarra. Ibarra: "Siete... ¡soy yo! ¡Tu doctor!". Siete se lo arranca de los brazos y lo levanta del cuello (Siete NO le obedece: es uno de los sujetos que Ibarra usó, ahora se vuelve contra él). Ibarra patalea; Lucía abre los ojos y grita tu nombre. **Elección pendiente:** A) salvar a Ibarra (sabe la verdad de la cura) / B) escapar con Lucía.
 
 ## Correcciones de coherencia (aplicar desde la Parte 6)
 - **Agua:** los 50 L quedaron en el departamento del piso 33. Fuera del edificio el contador de agua tiene que mostrar solo lo que llevan encima (por ejemplo 2 L en las mochilas), no 50 L.
@@ -51,7 +53,7 @@
 - Desde la Parte 11 (escena `src/ep/piso33-p11.ts`, con `anchors.py` y `audio.py` propios en la carpeta de la parte): escenario `duct` (conducto metálico, ojos amarillos, rejilla iluminada a la izquierda, cartel SALIDA al fondo), camilla con correas en `lab`, rejilla de `cage` que se abre. Ibarra aún no sabe que escaparon (¿lo oyó?). La criatura de las jaulas (ojos amarillos) los sigue por el conducto.
 
 ## Plan de cierre
-Vamos por la Parte 11 de unas 12–14. Parte 12: resolver la elección (Lucía o salida) y qué es la criatura; rescatar a Lucía de Ibarra y la verdad de su "cura"; Parte 13/14: rescatar a Lucía de Ibarra y la verdad de su "cura"; Parte 13 (o 14): cierre fuerte (escape del laboratorio con Lucía, vuelta al helicóptero/piloto, resolver las huellas). Al día siguiente del final, arrancar serie nueva.
+(Actualización: vamos por la Parte 13; cerrar en la 14 o 15: destino de Ibarra, despertar de Lucía, escapar, piloto y huellas.) Antes: Vamos por la Parte 11 de unas 12–14. Parte 12: resolver la elección (Lucía o salida) y qué es la criatura; rescatar a Lucía de Ibarra y la verdad de su "cura"; Parte 13/14: rescatar a Lucía de Ibarra y la verdad de su "cura"; Parte 13 (o 14): cierre fuerte (escape del laboratorio con Lucía, vuelta al helicóptero/piloto, resolver las huellas). Al día siguiente del final, arrancar serie nueva.
 
 ## Cuando la historia termine
 Cuando PISO 33 se acerque a su fin (unas 12 a 16 partes en total), prepará un cierre fuerte en 1 o 2 partes y arrancá una serie nueva al día siguiente. La cuenta es genérica: cada serie tiene su propio nombre, portada y carpeta `historia/<serie>/`.
@@ -84,6 +86,7 @@ Reglas para cada serie nueva:
 | 9 | 16/11 16:00 (IG + YouTube, Metricool id 429882523) | 63% revisar el laboratorio |
 | 10 | 17/11 12:00 (IG + YouTube, Metricool id 431352199) — formato nuevo 3D | 57% escapar por la ventilación |
 | 11 | 18/11 12:00 (IG + YouTube, Metricool id 432703960) — 3D | 56% bajar por Lucía |
-| 12 | 19/11 12:00 (IG + YouTube, Metricool id 433530495) — primera con gancho | (pendiente) |
+| 12 | 19/11 12:00 (IG + YouTube, Metricool id 433530495) — primera con gancho | 53% tomar a Ibarra de rehén |
+| 13 | 20/11 12:00 (IG + YouTube, Metricool id 435422661) — 3D | (pendiente) |
 
 Nota: las Partes 1 y 2 se subieron a YouTube el 11/11 por la mañana.
