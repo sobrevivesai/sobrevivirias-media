@@ -2,7 +2,7 @@
 
 ## Datos fijos
 - Cuenta: Instagram @sobrevivirias.z (Metricool blogId 8008179, zona horaria America/Argentina/Buenos_Aires).
-- Serie actual: **PISO 33**. Última parte publicada o programada: **Parte 15**.
+- Serie actual: **PISO 33**. Última parte publicada o programada: **Parte 16 (FINAL de PISO 33)**.
 - Publicación: **1 parte por día a las 12:00 (desde el 17/11; antes 16:00)** (hora de Argentina), en Instagram (Reel) y YouTube (Short).
 
 ## Personajes (no cambiar su aspecto)
@@ -31,6 +31,8 @@
 14. Parte 14, LA FÓRMULA (3D): ganó escapar con Lucía (58%). Siete suelta a Ibarra y lo tira al piso (inmóvil, ¿muerto?) mientras Ibarra gritaba "¡Sin mí no hay cura! ¡Solo yo sé la fórmula!". Cargas a Lucía (mareada) sobre tu hombro; de la bata de Ibarra cae un cuaderno y lo agarras. El soldado abre la puerta; corren por el pasillo con Siete persiguiéndolos. Llegan a la puerta del patio (afuera, zombis golpeando). Lucía abre el cuaderno: la fórmula de la cura está ahí. Siete rompe la puerta detrás. **Elección pendiente:** A) cruzar el patio zombi / B) encerrar a Siete.
 
 15. Parte 15, LA HORDA (3D): ganó cruzar el patio (54%). El soldado abre la puerta y el patio entero se da vuelta; veinte zombis avanzan, pero pasan de largo y se apartan de Lucía ("Huelen mi sangre. Me tienen miedo"). Al fondo, la reja está cerrada con una cadena gruesa. Detrás, Siete rompe la puerta y ruge; la horda se gira hacia él y Siete los aparta a golpes. El soldado tira de la cadena y no cede. Siete a diez metros; los zombis vuelven a rodearlos. **Elección pendiente:** A) trepar la reja con Lucía / B) dejar que Siete pelee con los zombis. (Cerrar en la Parte 16: escape al valle, piloto, huellas.)
+
+16. Parte 16, EL ÚLTIMO RUGIDO (3D, FINAL): ganó trepar la reja (55%). El soldado sube y levanta a Lucía; tú trepas último con la horda empujando; Siete te agarra del tobillo, duda al mirarte, Lucía le dice "Tú ya no eres su perro" y Siete te suelta y frena a la horda sosteniendo la reja. Bajan al valle: las huellas eran del piloto, que fue a buscar combustible; despegan con la cura (cuaderno) y Siete los mira desde la reja. Cierre con votación de serie nueva: A) EL BÚNKER / B) LA ISLA. **PISO 33 terminó: la Parte 17 arranca serie nueva** (usar la opción ganadora; crear `historia/<serie>/`, Parte 1 con gancho).
 
 ## Correcciones de coherencia (aplicar desde la Parte 6)
 - **Agua:** los 50 L quedaron en el departamento del piso 33. Fuera del edificio el contador de agua tiene que mostrar solo lo que llevan encima (por ejemplo 2 L en las mochilas), no 50 L.
@@ -93,6 +95,7 @@ Reglas para cada serie nueva:
 | 12 | 19/11 12:00 (IG + YouTube, Metricool id 433530495) — primera con gancho | 53% tomar a Ibarra de rehén |
 | 13 | 20/11 12:00 (IG + YouTube, Metricool id 435422661) — 3D | 58% escapar con Lucía |
 | 14 | 21/11 12:00 (IG + YouTube, Metricool id 436582938) — 3D | 54% cruzar el patio |
-| 15 | 22/11 12:00 (IG + YouTube, Metricool id 437478207) — 3D | (pendiente) |
+| 15 | 22/11 12:00 (IG + YouTube, Metricool id 437478207) — 3D | 55% trepar la reja |
+| 16 | 23/11 12:00 (IG + YouTube, Metricool id 438639245) — 3D, FINAL | (pendiente: votación de la serie nueva, EL BÚNKER vs LA ISLA) |
 
 Nota: las Partes 1 y 2 se subieron a YouTube el 11/11 por la mañana.
