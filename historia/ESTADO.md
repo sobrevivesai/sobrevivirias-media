@@ -2,7 +2,7 @@
 
 ## Datos fijos
 - Cuenta: Instagram @sobrevivirias.z (Metricool blogId 8008179, zona horaria America/Argentina/Buenos_Aires).
-- Serie actual: **PISO 33**. Última parte publicada o programada: **Parte 16 (FINAL de PISO 33)**.
+- Serie actual: **EL BÚNKER** (PISO 33 terminó en su Parte 16). Última parte programada: **EL BÚNKER Parte 1** (= Parte 17 de la cuenta). Carpeta `historia/bunker/parte1/`, escena `engine3d/src/ep/bunker-p1.ts`.
 - Publicación: **1 parte por día a las 12:00 (desde el 17/11; antes 16:00)** (hora de Argentina), en Instagram (Reel) y YouTube (Short).
 
 ## Personajes (no cambiar su aspecto)
@@ -33,6 +33,13 @@
 15. Parte 15, LA HORDA (3D): ganó cruzar el patio (54%). El soldado abre la puerta y el patio entero se da vuelta; veinte zombis avanzan, pero pasan de largo y se apartan de Lucía ("Huelen mi sangre. Me tienen miedo"). Al fondo, la reja está cerrada con una cadena gruesa. Detrás, Siete rompe la puerta y ruge; la horda se gira hacia él y Siete los aparta a golpes. El soldado tira de la cadena y no cede. Siete a diez metros; los zombis vuelven a rodearlos. **Elección pendiente:** A) trepar la reja con Lucía / B) dejar que Siete pelee con los zombis. (Cerrar en la Parte 16: escape al valle, piloto, huellas.)
 
 16. Parte 16, EL ÚLTIMO RUGIDO (3D, FINAL): ganó trepar la reja (55%). El soldado sube y levanta a Lucía; tú trepas último con la horda empujando; Siete te agarra del tobillo, duda al mirarte, Lucía le dice "Tú ya no eres su perro" y Siete te suelta y frena a la horda sosteniendo la reja. Bajan al valle: las huellas eran del piloto, que fue a buscar combustible; despegan con la cura (cuaderno) y Siete los mira desde la reja. Cierre con votación de serie nueva: A) EL BÚNKER / B) LA ISLA. **PISO 33 terminó: la Parte 17 arranca serie nueva** (usar la opción ganadora; crear `historia/<serie>/`, Parte 1 con gancho).
+
+## SERIE NUEVA: EL BÚNKER
+- Protagonista (`BU` en castdefs.ts): figura de palitos con **bandana azul**, campera naranja, mochila gris, pelo oscuro. Narración en segunda persona.
+- Escenario `bunk` (bunker-p1.ts): sala de concreto 5,5x6 m, escotilla circular con volante en el techo sobre la escalera (pared del fondo, derecha), 4 barriles de agua, estante de latas (izquierda), litera (derecha), filtro de aire con ventilador (fondo derecha), mesa con monitor "CAM 1 · ESCOTILLA" (izquierda, frente), foco colgante.
+- Recursos: agua para 40 días, comida para 20, batería del filtro de aire 2 semanas. Bajaste hace 3 horas y sellaste la escotilla.
+- Parte 1, LA ESCOTILLA: tres golpes en la escotilla; una mujer grita "¡Por favor, ábreme! ¡Me siguen!" por el parlante; en el monitor se ve su silueta y detrás algo que se arrastra (ojos amarillos-verdes). Si abres entra aire contaminado. **Elección pendiente:** A) ABRIR / B) ESPERAR.
+- Hilos: ¿quién es ella? ¿qué la sigue? ¿por qué la ciudad está en silencio?
 
 ## Correcciones de coherencia (aplicar desde la Parte 6)
 - **Agua:** los 50 L quedaron en el departamento del piso 33. Fuera del edificio el contador de agua tiene que mostrar solo lo que llevan encima (por ejemplo 2 L en las mochilas), no 50 L.
@@ -96,6 +103,7 @@ Reglas para cada serie nueva:
 | 13 | 20/11 12:00 (IG + YouTube, Metricool id 435422661) — 3D | 58% escapar con Lucía |
 | 14 | 21/11 12:00 (IG + YouTube, Metricool id 436582938) — 3D | 54% cruzar el patio |
 | 15 | 22/11 12:00 (IG + YouTube, Metricool id 437478207) — 3D | 55% trepar la reja |
-| 16 | 23/11 12:00 (IG + YouTube, Metricool id 438639245) — 3D, FINAL | (pendiente: votación de la serie nueva, EL BÚNKER vs LA ISLA) |
+| 16 | 23/11 12:00 (IG + YouTube, Metricool id 438639245) — 3D, FINAL | 56% EL BÚNKER (vs 44% LA ISLA) |
+| 17 = BÚNKER 1 | 24/11 12:00 (IG + YouTube, Metricool id 440110276) — 3D, serie nueva | (pendiente: ABRIR vs ESPERAR) |
 
 Nota: las Partes 1 y 2 se subieron a YouTube el 11/11 por la mañana.
