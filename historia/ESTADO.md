@@ -2,7 +2,7 @@
 
 ## Datos fijos
 - Cuenta: Instagram @sobrevivirias.z (Metricool blogId 8008179, zona horaria America/Argentina/Buenos_Aires).
-- Serie actual: **EL BÚNKER** (PISO 33 terminó en su Parte 16). Última parte programada: **EL BÚNKER Parte 2** (= Parte 18 de la cuenta). Carpeta `historia/bunker/parte2/`, escena `engine3d/src/ep/bunker-p2.ts`.
+- Serie actual: **EL BÚNKER** (PISO 33 terminó en su Parte 16). Última parte programada: **EL BÚNKER Parte 3** (= Parte 19 de la cuenta). Carpeta `historia/bunker/parte3/`, escena `engine3d/src/ep/bunker-p3.ts`.
 - Publicación: **1 parte por día a las 12:00 (desde el 17/11; antes 16:00)** (hora de Argentina), en Instagram (Reel) y YouTube (Short).
 
 ## Personajes (no cambiar su aspecto)
@@ -40,6 +40,8 @@
 - Recursos: agua para 40 días, comida para 20, batería del filtro de aire 2 semanas. Bajaste hace 3 horas y sellaste la escotilla.
 - Parte 1, LA ESCOTILLA: tres golpes en la escotilla; una mujer grita "¡Por favor, ábreme! ¡Me siguen!" por el parlante; en el monitor se ve su silueta y detrás algo que se arrastra (ojos amarillos-verdes). Si abres entra aire contaminado. **Elección pendiente:** A) ABRIR / B) ESPERAR.
 - Parte 2, TU NOMBRE: ganó esperar (57%). Apagas la luz; en el monitor ella golpea y la criatura se acerca, se detiene a su lado y no la ataca. La mujer deja de llorar, sonríe a la cámara y dice tu nombre (nunca se lo dijiste). "Me manda tu hermano. Tengo su llave": muestra una llave igual a la tuya. Clic arriba: el volante de la escotilla empieza a girar. **Elección pendiente:** A) TRABAR EL VOLANTE / B) DEJARLA ENTRAR.
+- Parte 3, LA BARRA: ganó trabar el volante (56%). Subes la escalera y cruzas una barra de hierro entre los rayos; el volante golpea la barra y se detiene. Ella sonríe: "Tu hermano dijo que harías eso". Señala la escotilla, la criatura sale de cámara y queda sobre ti (ella parece darle órdenes); el volante vuelve a girar y la barra se dobla. Por el parlante: "Tu hermano está vivo. Le quedan diez minutos." **Elección pendiente:** A) PEDIR UNA PRUEBA / B) CORTAR EL PARLANTE. (Al seguir: el plazo de 10 minutos corre y la barra está doblada, sin romperse.)
+- Desde la Parte 3 (`bunker-p3.ts`): barra de hierro que se dobla (`setBar(on, bend, slide)`); `drawMon` admite `point` (ella señala) y `climb` (la criatura sale del cuadro hacia arriba).
 - Hilos: ¿quién es ella y cómo sabe tu nombre? ¿Es verdad lo de tu hermano y de dónde sacó su llave? ¿Por qué la criatura no la ataca (como Lucía en PISO 33: ¿la obedece o le teme?)? ¿por qué la ciudad está en silencio? El nombre del protagonista y el del hermano no se dicen.
 - Desde la Parte 2 (`bunker-p2.ts`): monitor dinámico `drawMon({creep, zoom, expr, key})` con la mujer (`ELLA` en castdefs: pelo negro largo, ropa gris) y la criatura; volante amarillo que gira (`parts.wheel`); llave dorada 3D (`parts.keyProp`); luz `red`.
 
@@ -107,6 +109,7 @@ Reglas para cada serie nueva:
 | 15 | 22/11 12:00 (IG + YouTube, Metricool id 437478207) — 3D | 55% trepar la reja |
 | 16 | 23/11 12:00 (IG + YouTube, Metricool id 438639245) — 3D, FINAL | 56% EL BÚNKER (vs 44% LA ISLA) |
 | 17 = BÚNKER 1 | 24/11 12:00 (IG + YouTube, Metricool id 440110276) — 3D, serie nueva | 57% esperar |
-| 18 = BÚNKER 2 | 25/11 12:00 (IG + YouTube, Metricool id 441567908) — 3D | (pendiente: TRABAR EL VOLANTE vs DEJARLA ENTRAR) |
+| 18 = BÚNKER 2 | 25/11 12:00 (IG + YouTube, Metricool id 441567908) — 3D | 56% trabar el volante |
+| 19 = BÚNKER 3 | 26/11 12:00 (IG + YouTube, Metricool id 442966924) — 3D | (pendiente: PEDIR UNA PRUEBA vs CORTAR EL PARLANTE) |
 
 Nota: las Partes 1 y 2 se subieron a YouTube el 11/11 por la mañana.
