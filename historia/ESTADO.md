@@ -5,6 +5,12 @@
 - Serie actual: **EL BÚNKER** (PISO 33 terminó en su Parte 16). Última parte programada: **EL BÚNKER Parte 3** (= Parte 19 de la cuenta). Carpeta `historia/bunker/parte3/`, escena `engine3d/src/ep/bunker-p3.ts`.
 - Publicación: **1 parte por día a las 12:00 (desde el 17/11; antes 16:00)** (hora de Argentina), en Instagram (Reel) y YouTube (Short).
 
+## AVISO (revisado el 27/11): publicación frenada
+- La **BÚNKER Parte 3 no salió** por el límite del plan gratis de Metricool (20 publicaciones por mes calendario; según la ayuda de Metricool se renueva el día 1, o sea 1/12). En noviembre figuran 20 publicaciones publicadas.
+- El 27/11 **no se creó la Parte 4**: la audiencia todavía no vio la Parte 3 ni pudo votarla.
+- Pendiente de decisión del dueño: publicar `videos/bunker-parte3.mp4` a mano, pasar a un plan pago, o reprogramarla desde el 1/12. Antes de crear la Parte 4, comprobar que la Parte 3 esté publicada (Metricool o analítica de reels de Instagram).
+- Con 20 publicaciones por mes no alcanza para una parte diaria en diciembre (31 días).
+
 ## Personajes (no cambiar su aspecto)
 - **Tú (protagonista):** figura de palitos, cabeza blanca, ojos de punto, **bandana roja** con nudo, campera verde oliva, mochila verde. La narración siempre le habla a él en segunda persona ("tú").
 - **Lucía:** vecina del departamento 3302. Pelo castaño largo, campera violeta, mochila. Tiene una **mordida en el brazo** desde hace más de 3 días, sin fiebre: podría ser inmune. Es leal y está asustada.
@@ -110,6 +116,6 @@ Reglas para cada serie nueva:
 | 16 | 23/11 12:00 (IG + YouTube, Metricool id 438639245) — 3D, FINAL | 56% EL BÚNKER (vs 44% LA ISLA) |
 | 17 = BÚNKER 1 | 24/11 12:00 (IG + YouTube, Metricool id 440110276) — 3D, serie nueva | 57% esperar |
 | 18 = BÚNKER 2 | 25/11 12:00 (IG + YouTube, Metricool id 441567908) — 3D | 56% trabar el volante |
-| 19 = BÚNKER 3 | 26/11 12:00 (IG + YouTube, Metricool id 442966924) — 3D | (pendiente: PEDIR UNA PRUEBA vs CORTAR EL PARLANTE) |
+| 19 = BÚNKER 3 | **NO PUBLICADA**: programada 26/11 12:00 (Metricool id 442966924), ERROR en IG y YouTube ("You have reached your Metricool account limit") | (pendiente: PEDIR UNA PRUEBA vs CORTAR EL PARLANTE) |
 
 Nota: las Partes 1 y 2 se subieron a YouTube el 11/11 por la mañana.
