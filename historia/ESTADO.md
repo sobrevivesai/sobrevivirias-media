@@ -9,6 +9,7 @@
 - La **BÚNKER Parte 3 no salió** por el límite del plan gratis de Metricool (20 publicaciones por mes calendario; según la ayuda de Metricool se renueva el día 1, o sea 1/12). En noviembre figuran 20 publicaciones publicadas.
 - El 27/11 **no se creó la Parte 4**: la audiencia todavía no vio la Parte 3 ni pudo votarla.
 - Pendiente de decisión del dueño: publicar `videos/bunker-parte3.mp4` a mano, pasar a un plan pago, o reprogramarla desde el 1/12. Antes de crear la Parte 4, comprobar que la Parte 3 esté publicada (Metricool o analítica de reels de Instagram).
+- Revisado el 28/11: la Parte 3 sigue con ERROR en Metricool (IG y YouTube) y no aparece en la analítica de reels de Instagram (consulta del 24 al 28/11: solo Partes 1 y 2). La analítica de YouTube no devolvió ningún video en ese rango (ni la Parte 2, que sí figura publicada), así que no sirve para comprobarlo. Metricool no muestra nada programado para el 28/11. **No se creó la Parte 4.**
 - Con 20 publicaciones por mes no alcanza para una parte diaria en diciembre (31 días).
 
 ## Personajes (no cambiar su aspecto)
